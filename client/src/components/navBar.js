@@ -8,13 +8,13 @@ const navBar = () => {
         <a href="#" className="navText">Home</a>
         <a href="#" className="navText">Guide</a>
         <a href="#" className="navText">Tournament</a>
-        <a href="#">
+        <a href="#" className="btnPosition">
         <button className="signIn">
           <p className="btnText">Sign In</p>
         </button>
         </a>
-        <p href="#" className="navText">or</p>
-        <a>
+        <p className="navText">or</p>
+        <a href="#" className="btnPosition">
         <button className="signUp">
           <p className="btnText">Sign Up</p>
         </button>

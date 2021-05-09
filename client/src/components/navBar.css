@@ -6,7 +6,8 @@
   padding: 0;
   margin: 0;
   position: fixed;
-  box-shadow: 0px 5px 8px #E41376;
+  box-shadow: 0px 5px 8px #e41376;
+  z-index: 2;
 }
 .navPosition {
   display: flex;
@@ -17,11 +18,11 @@
 }
 
 .navText {
-  font-weight: bold;
   margin-right: 2%;
   font-size: 18px;
   text-decoration: none;
   color: #ffffff;
+  font-family: 'Righteous';
 }
 
 .signIn {
@@ -36,13 +37,20 @@
   color: #ffffff;
   cursor: pointer;
 }
+
 .btnText {
   font-weight: bold;
   font-size: 18px;
   text-decoration: none;
   color: #ffffff;
   margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
 }
+
+.btnPosition {
+  margin-right: 2%;
+}
+
 .signUp {
   background-color: #cc1f38;
   border-radius: 5px;

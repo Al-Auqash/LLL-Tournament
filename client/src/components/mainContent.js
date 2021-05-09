@@ -1,12 +1,13 @@
-import React from 'react'
+import React from "react";
+import WelcomePage from "./subMainContent/welcomePage";
+import "./mainContent.css";
 
 const mainContent = () => {
-    return(
-        <section>
-            <div>
-                <h1>JOIN THE COMPETITIVE ESPORT GAMING</h1>
-                <h4>CONTEST YOUR SKILL AMONG THE PROS</h4>
-            </div>
-        </section>
-    )
-}
+  return (
+    <section id="mainContent">
+      <WelcomePage />
+    </section>
+  );
+};
+
+export default mainContent;
