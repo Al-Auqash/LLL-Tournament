@@ -1,0 +1,45 @@
+#navBar {
+  background-color: #1e3044;
+  color: #ffffff;
+  height: 10vh;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+.navPosition {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  height: 100%;
+}
+
+.navText {
+  font-weight: bold;
+  margin-right: 2%;
+  font-size: 18px;
+}
+
+.signIn {
+  background-color: transparent;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 5px;
+  border-color: #ffffff;
+  width: 7%;
+  height: 50%;
+  margin-right: 2%;
+  color: #ffffff;
+  text-align: center;
+}
+
+.signUp {
+  background-color: #cc1f38;
+  border-radius: 5px;
+  width: 7%;
+  height: 50%;
+  border-color: none;
+  margin-right: 2%;
+  color: #ffffff;
+  text-align: center;
+}
