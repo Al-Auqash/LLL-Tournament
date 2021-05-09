@@ -5,16 +5,25 @@ const navBar = () => {
   return (
     <section id="navBar">
       <div className="navPosition">
-        <a className="navText">Home</a>
-        <a className="navText">Guide</a>
-        <a className="navText">Tournament</a>
-        <div className="signIn">
-          <a className="navText">Sign In</a>
-        </div>
-        <p className="navText">or</p>
-        <div className="signUp">
-          <a className="navText">Sign Up</a>
-        </div>
+        <a href="#" className="navText">Home</a>
+        <a href="#" className="navText">Guide</a>
+        <a href="#" className="navText">Tournament</a>
+        <a href="#">
+        <button className="signIn">
+          <p className="btnText">Sign In</p>
+        </button>
+        </a>
+        <p href="#" className="navText">or</p>
+        <a>
+        <button className="signUp">
+          <p className="btnText">Sign Up</p>
+        </button>
+        </a>
+        
+        
+        {/* <button className="signUp">
+          <a href="#" className="navText">Sign Up</a>
+        </button> */}
       </div>
     </section>
   );
