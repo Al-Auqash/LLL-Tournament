@@ -1,7 +1,9 @@
 import React from "react";
 import Nav from "./components/navBar";
 import MainContent from "./components/mainContent";
-import './App.css';
+import Footer from "./components/footer";
+
+import "./App.css";
 
 function App() {
   return (
@@ -9,6 +11,7 @@ function App() {
       <div className="appPosition">
         <Nav />
         <MainContent />
+        <Footer />
       </div>
     </div>
   );

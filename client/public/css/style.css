@@ -3,4 +3,5 @@ body {
     padding: 0; 
     /* background-color: #10131c;   */
     background-image: url("../img/Esport-wallpaper.jpg"); 
+    background-repeat: no-repeat;
 }

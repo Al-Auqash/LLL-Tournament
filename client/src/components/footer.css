@@ -1,0 +1,26 @@
+#footer {
+  background-color: #1e3044;
+  height: 30vh;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  box-shadow: 0px -5px 8px #e41376;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  color: #ffffff;
+}
+
+.footerContent {
+    margin: 10%;
+}
+
+.footerContent ul {
+  list-style: none;
+}
+
+.footerContent ul li {
+  font-family: Arial, Helvetica, sans-serif;
+  margin-top: 5%;
+}
