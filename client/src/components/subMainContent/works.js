@@ -35,6 +35,9 @@ const works = () => {
           </p>
         </div>
       </div>
+      <div className="learnMore">
+        <a href="#">Learn More About LLL ...</a>
+      </div>
     </div>
   );
 };

@@ -8,15 +8,19 @@
   flex-direction: column;
   justify-content: center;
 }
+
 .title {
   color: #ffffff;
   margin: 2% 5% 2% 5%;
-  border-bottom: 3px solid #CC1F38;
+  border-bottom: 3px solid #cc1f38;
   width: 14%;
+  font-family: Arial, Helvetica, sans-serif;
 }
-.title h1{
+
+.title h1 {
   background-color: transparent;
 }
+
 .worksCard {
   display: flex;
   flex-direction: row;
@@ -25,6 +29,7 @@
   height: 50%;
   font-family: Arial, Helvetica, sans-serif;
 }
+
 .card {
   width: 15%;
   height: 100%;
@@ -43,7 +48,22 @@
   0 0 0 10px hsl(0, 0%, 80%),
   0 0 0 15px hsl(0, 0%, 90%); */
 }
+
 .cardImage {
   height: 30%;
   width: auto;
+}
+
+.learnMore {
+  display: flex;
+  justify-content: center;
+  margin-top: 3%;
+}
+
+.learnMore a {
+  text-decoration: none;
+  color: #cc1f38;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+
 }

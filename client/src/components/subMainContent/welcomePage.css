@@ -10,6 +10,9 @@
   justify-content: center;
   font-family: Arial, Helvetica, sans-serif;
 }
+.welcomePage h1{
+  font-size: 40px;
+}
 .background {
   background-image: linear-gradient(
     rgba(56, 82, 160, 0.2),
