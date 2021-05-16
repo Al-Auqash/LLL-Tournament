@@ -16,7 +16,7 @@ const navBar = () => {
           Tournament
         </a>
         <Link to="/signIn" className="btnPosition">
-          <button className="signIn"></button>
+          <button className="signIn" >SIGN IN</button>
         </Link>
         <p className="navText">or</p>
         <a href="#" className="btnPosition">
