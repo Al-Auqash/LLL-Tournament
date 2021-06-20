@@ -1,0 +1,31 @@
+.welcomePage {
+  /* background-image: url("../../img/Esport-wallpaper.jpg"); */
+  background-image: linear-gradient(rgba(56, 82, 160, 0.2), rgba(16, 19, 28, 1));
+  background-size: cover;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.welcomePage h1{
+  font-size: 40px;
+}
+.background {
+  background-image: linear-gradient(
+    rgba(56, 82, 160, 0.2),
+    rgba(16, 19, 28, 1)
+  );
+  background-position: center;
+  background-size: cover;
+}
+.joinNow{
+  background-color: #cc1f38;
+  border-radius: 5px;
+  height: 8vh;
+  width: 24vh;
+  border-color: transparent;
+  cursor: pointer;
+}

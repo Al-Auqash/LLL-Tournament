@@ -1,34 +1,23 @@
-import React from "react";
-import SignIn from "./components/signIn";
-// import IndexComponents from "./components/indexComponents";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import Nav from "./components/navBar";
-import MainContent from "./components/mainContent";
-import Footer from "./components/footer";
-import ForgotPassword from "./components/forgotPassword";
-
-import "./App.css";
+import logo from './logo.svg';
+import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <div className="appPosition">
-        <Router>
-          <Switch>
-            <Route exact path="/">
-              <Nav />
-              <MainContent />
-              <Footer />
-            </Route>
-            <Route exact path="/signIn">
-              <SignIn />
-            </Route>
-            <Route exact path="/forgotPassword">
-              <ForgotPassword />
-            </Route>
-          </Switch>
-        </Router>
-      </div>
+      <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
+        <p>
+          Edit <code>src/App.js</code> and save to reload.
+        </p>
+        <a
+          className="App-link"
+          href="https://reactjs.org"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Learn React
+        </a>
+      </header>
     </div>
   );
 }
