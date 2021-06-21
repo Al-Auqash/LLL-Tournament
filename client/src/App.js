@@ -1,25 +1,66 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import ReactDOM from "react-dom";
+import SignIn from "./components/signIn";
+import SignUp from "./components/signUp";
+// import IndexComponents from "./components/indexComponents";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import Nav from "./components/navBar";
+import MainContent from "./components/mainContent";
+import Footer from "./components/footer";
+import ForgotPassword from "./components/forgotPassword";
+import Tournament from "./components/tournament";
+import Guide from "./components/guide";
+import Help from "./components/help";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import "./App.css";
+
+class App extends Component {
+    render() {
+        return (
+            <div className="App">
+                <div className="appPosition">
+                    <Router>
+                        <Switch>
+                            <Route exact path="/signIn">
+                                <SignIn />
+                            </Route>
+                            <Route exact path="/signUp">
+                                <SignUp />
+                            </Route>
+                            <Route exact path="/forgotPassword">
+                                <ForgotPassword />
+                            </Route>
+                            <>
+                                <Nav />
+                                <Route exact path="/">
+                                    <MainContent />
+                                </Route>
+                                <Route exact path="/tournament">
+                                    <Tournament />
+                                </Route>
+                                <Route exact path="/tournament/finished">
+                                    <Tournament />
+                                </Route>
+                                <Route exact path="/help">
+                                    <Help />
+                                </Route>
+                                <Route exact path="/guide">
+                                    <Guide />
+                                </Route>
+
+                                <Footer />
+                            </>
+                        </Switch>
+                        <Switch></Switch>
+                    </Router>
+                </div>
+            </div>
+        );
+    }
 }
 
 export default App;
+
+if (document.getElementById("app")) {
+    ReactDOM.render(<App />, document.getElementById("app"));
+}
