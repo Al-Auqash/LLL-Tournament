@@ -1,4 +1,5 @@
-.appPosition{
-    display: flex;
-    flex-direction: column;
+
+.appPosition {
+  display: flex;
+  flex-direction: column;
 }

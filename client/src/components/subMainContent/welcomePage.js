@@ -8,9 +8,9 @@ const welcomePage = () => {
       {/* <div className="background"> */}
         <h1>JOIN THE COMPETITIVE ESPORT GAMING</h1>
         <h4>CONTEST YOUR SKILL AMONG THE PROS</h4>
-        <Link to="/signUp" className="btnPosition">
+        <Link to="/signUp">
           <button className="joinNow">
-            <p className="btnText">Join Now</p>
+            <p className="welcomeBtnText">JOIN NOW</p>
           </button>
         </Link>
       {/* </div> */}

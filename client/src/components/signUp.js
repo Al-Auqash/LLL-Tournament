@@ -159,10 +159,10 @@ class signUp extends Component {
                         >
                             SIGN UP
                         </button>
-                        {/* <Link to="/signIn">
+                        <Link to="/signIn">
                             <p>have an account? Sign In here</p>
                         </Link>
-                        <img src={line} className="formSeparation"></img> */}
+                        <img src={line} className="formSeparation"></img>
                     </form>
                 </div>
             </div>
