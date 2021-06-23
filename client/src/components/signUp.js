@@ -10,63 +10,63 @@ import { Link, Redirect } from "react-router-dom";
 import axios from "axios";
 
 class signUp extends Component {
-    constructor() {
-        super();
+    // constructor() {
+    //     super();
 
-        this.state = {
-            name: "",
-            team: "",
-            username: "",
-            email: "",
-            password: "",
-            password_confirmation: "",
-        };
+    //     this.state = {
+    //         name: "",
+    //         team: "",
+    //         username: "",
+    //         email: "",
+    //         password: "",
+    //         password_confirmation: "",
+    //     };
 
-        this.createPlayer = this.createPlayer.bind(this);
-        this.handleFieldChange = this.handleFieldChange.bind(this);
-    }
+    //     this.createPlayer = this.createPlayer.bind(this);
+    //     this.handleFieldChange = this.handleFieldChange.bind(this);
+    // }
 
-    handleFieldChange(event) {
-        this.setState({
-            [event.target.name]: event.target.value,
-        });
-    }
+    // handleFieldChange(event) {
+    //     this.setState({
+    //         [event.target.name]: event.target.value,
+    //     });
+    // }
 
-    createPlayer(event) {
-        event.preventDefault();
+    // createPlayer(event) {
+    //     event.preventDefault();
 
-        // const player = {
-        //     name: this.state.name,
-        //     team: this.state.team,
-        //     username: this.state.username,
-        //     email: this.state.email,
-        //     password: this.state.password,
-        // };
-        axios
-            .post("/api/signUp", {
-                name: this.state.name,
-                team: this.state.team,
-                username: this.state.username,
-                email: this.state.email,
-                password: this.state.password,
-                password_confirmation: this.state.password_confirmation,
-            })
-            .then((response) => {
-                console.log(response);
-                window.location.href = "/";
-            })
-            .catch((error) => {
-                console.log(error);
-            });
+    //     // const player = {
+    //     //     name: this.state.name,
+    //     //     team: this.state.team,
+    //     //     username: this.state.username,
+    //     //     email: this.state.email,
+    //     //     password: this.state.password,
+    //     // };
+    //     axios
+    //         .post("/api/signUp", {
+    //             name: this.state.name,
+    //             team: this.state.team,
+    //             username: this.state.username,
+    //             email: this.state.email,
+    //             password: this.state.password,
+    //             password_confirmation: this.state.password_confirmation,
+    //         })
+    //         .then((response) => {
+    //             console.log(response);
+    //             window.location.href = "/";
+    //         })
+    //         .catch((error) => {
+    //             console.log(error);
+    //         });
 
-        this.setState({
-            name: "",
-            team: "",
-            username: "",
-            email: "",
-            password: "",
-        });
-    }
+    //     this.setState({
+    //         name: "",
+    //         team: "",
+    //         username: "",
+    //         email: "",
+    //         password: "",
+    //     });
+    // }
 
     render() {
         const twitchClick = () => {
