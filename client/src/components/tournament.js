@@ -71,7 +71,7 @@ class tournament extends Component {
                                                     <h3>
                                                         {Tournaments.name.toUpperCase()}
                                                     </h3>
-                                                    <h3>{Tournaments.date}</h3>
+                                                    <h3>{Tournaments.status}</h3>
                                                     <h3>{Tournaments.prize}</h3>
                                                 </Link>
                                             ))}
