@@ -1,22 +1,33 @@
-import express from "express";
-import mongoose from "mongoose";
-
-import tournamentModel from "../models/tournament.js";
+const express = require("express");
+const mongoose = require("mongoose");
+const tournamentModel = require("../models/tournament.js");
 
 const router = express.Router();
 
-export const getTournaments = async (req, res) => {
+const getTournaments = async (req, res) => {
   try {
-    const tournament = await tournamentModel.find();
-
+    const tournament = await tournamentModel.find(function (err, tournaments) {
+      if (err) return handleError(err);
+    });
+    // res.json(`here is a ${tournament}`);
     res.status(200).json(tournament);
   } catch (error) {
     res.status(404).json({ message: error.message });
-    console.log("gagal")
+    console.log("gagal");
   }
+
+  // tournamentModel.find(function (err, tournament) {
+  //   if (err) return next(err);
+  //   res.json(tournament);
+  // });
+
+  // const db = mongoose.db("LLL-Tournament");
+  // const result = db.collection("tournaments").find();
+  // res.send(200).json(result);
+  // console.log("berhasil");
 };
 
-export const getTournament = async (req, res) => {
+const getTournament = async (req, res) => {
   const { id } = req.params;
 
   try {
@@ -28,7 +39,7 @@ export const getTournament = async (req, res) => {
   }
 };
 
-export const createTournament = async (req, res) => {
+const createTournament = async (req, res) => {
   const { id_server, tournament } = req.body;
 
   const newTournament = new tournament({
@@ -45,7 +56,7 @@ export const createTournament = async (req, res) => {
   }
 };
 
-export const updateTournament = async (req, res) => {
+const updateTournament = async (req, res) => {
   const { id } = req.params;
   const { id_server, tournament } = req.body;
 
@@ -59,7 +70,7 @@ export const updateTournament = async (req, res) => {
   res.json(updatedServer);
 };
 
-export const deleteTournament = async (req, res) => {
+const deleteTournament = async (req, res) => {
   const { id } = req.params;
 
   if (!mongoose.Types.ObjectId.isValid(id))
@@ -70,4 +81,8 @@ export const deleteTournament = async (req, res) => {
   res.json({ message: "server deleted successfully." });
 };
 
-export default router;
+exports.getTournaments = getTournaments;
+exports.getTournament = getTournament;
+exports.createTournament = createTournament;
+exports.updateTournament = updateTournament;
+exports.deleteTournament = deleteTournament;
