@@ -6,11 +6,9 @@ const router = express.Router();
 
 const getTournaments = async (req, res) => {
   try {
-    const tournament = await tournamentModel.find(function (err, tournaments) {
-      if (err) return handleError(err);
-    });
-    // res.json(`here is a ${tournament}`);
+    const tournament = await tournamentModel.find();
     res.status(200).json(tournament);
+    console.log("berhasil")
   } catch (error) {
     res.status(404).json({ message: error.message });
     console.log("gagal");
