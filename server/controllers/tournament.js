@@ -2,27 +2,20 @@ const express = require("express");
 const mongoose = require("mongoose");
 const tournamentModel = require("../models/tournament.js");
 
-const router = express.Router();
-
 const getTournaments = async (req, res) => {
-  try {
-    const tournament = await tournamentModel.find();
-    res.status(200).json(tournament);
-    console.log("berhasil")
-  } catch (error) {
-    res.status(404).json({ message: error.message });
-    console.log("gagal");
-  }
+  // try {
+  //   const tournament = await tournamentModel.find();
+  //   res.status(200).json(tournament);
+  //   console.log("berhasil")
+  // } catch (error) {
+  //   res.status(404).json({ message: error.message });
+  //   console.log("gagal");
+  // }
 
-  // tournamentModel.find(function (err, tournament) {
-  //   if (err) return next(err);
-  //   res.json(tournament);
-  // });
-
-  // const db = mongoose.db("LLL-Tournament");
-  // const result = db.collection("tournaments").find();
-  // res.send(200).json(result);
-  // console.log("berhasil");
+  tournamentModel
+    .find()
+    .then((tournaments) => res.json(tournaments))
+    .catch((err) => res.status(400).json("Error: " + err));
 };
 
 const getTournament = async (req, res) => {

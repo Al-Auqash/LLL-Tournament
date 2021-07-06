@@ -1,42 +1,30 @@
-const express = require("express");
-const bodyParser = require("body-parser");
-const mongoose = require("mongoose");
-// import cors from "cors";
+const express = require('express');
+const cors = require('cors');
+const mongoose = require('mongoose');
 
-const tournament = require("./routes/tournament.js");
-const { ModuleFilenameHelpers } = require("webpack");
+require('dotenv').config();
 
 const app = express();
+const port = process.env.PORT || 5000;
 
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
-// app.use(cors());
+app.use(cors());
+app.use(express.json());
 
-app.use("/", tournament);
-app.use("/api/tournament", tournament);
 
-const CONNECTION_URL =
-  // "mongodb+srv://Leo:LLL-tournament@cluster0.dmbth.mongodb.net/LLL-Tournament";
-  "mongodb+srv://Leo:LLL-tournament@cluster0.dmbth.mongodb.net/LLL-Tournament?retryWrites=true&w=majority"
-// "mongodb://localhost:27017";
-const PORT = process.env.PORT || 3000;
+const uri = process.env.DATABASE_URL;
+mongoose.connect(uri, { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true }
+);
+const connection = mongoose.connection;
+connection.once('open', () => {
+  console.log("MongoDB database connection established successfully");
+})
 
-mongoose
-  .connect(CONNECTION_URL, { useNewUrlParser: true, useUnifiedTopology: true })
-  .then(() =>
-    app.listen(PORT, () =>
-      console.log(`Server Running on Port: http://localhost:${PORT}`)
-    )
-  )
-  .catch((error) => console.log(`${error} did not connect`));
+const tournament = require('./routes/tournament');
+// const usersRouter = require('./routes/users');
 
-const db = mongoose.connection;
+app.use("/tournament", tournament);
 
-db.on("error", console.error.bind("error"));
-db.once("open", () => {
-  console.log("connected");
+app.listen(port, () => {
+    console.log(`Server is running on port: ${port}`);
 });
-
-mongoose.set("useFindAndModify", false);
-
 module.exports = app;
