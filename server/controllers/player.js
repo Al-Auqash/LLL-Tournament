@@ -1,11 +1,11 @@
-import express from "express";
-import mongoose from "mongoose";
+const express = require("express");
+const mongoose = require("mongoose");
 
-import players from "../models/players.js";
+const players = require("../models/player.js");
 
 const router = express.Router();
 
-export const getPlayers = async (req, res) => {
+const getPlayers = async (req, res) => {
   try {
     const players = await players.find();
 
@@ -15,7 +15,7 @@ export const getPlayers = async (req, res) => {
   }
 };
 
-export const getPlayer = async (req, res) => {
+const getPlayer = async (req, res) => {
   const { id } = req.params;
 
   try {
@@ -27,15 +27,15 @@ export const getPlayer = async (req, res) => {
   }
 };
 
-export const createPlayer = async (req, res) => {
-  const { id_user, username, inGameName, series, gameName } = req.body;
+const createPlayer = async (req, res) => {
+  const { name, team, username, email, password } = req.body;
 
   const newPlayer = new players({
-    id_user,
+    name,
+    team,
     username,
-    inGameName,
-    series,
-    gameName,
+    email,
+    password,
   });
 
   try {
@@ -47,7 +47,7 @@ export const createPlayer = async (req, res) => {
   }
 };
 
-export const updatePlayer = async (req, res) => {
+const updatePlayer = async (req, res) => {
   const { id } = req.params;
   const { id_user, username, inGameName, series, gameName } = req.body;
 
@@ -68,7 +68,7 @@ export const updatePlayer = async (req, res) => {
   res.json(updatedPlayer);
 };
 
-export const deletePlayer = async (req, res) => {
+const deletePlayer = async (req, res) => {
   const { id } = req.params;
 
   if (!mongoose.Types.ObjectId.isValid(id))
@@ -79,4 +79,8 @@ export const deletePlayer = async (req, res) => {
   res.json({ message: "player deleted successfully." });
 };
 
-export default router;
+exports.getPlayers = getPlayers;
+exports.getPlayer = getPlayer;
+exports.createPlayer = createPlayer;
+exports.updatePlayer = updatePlayer;
+exports.deletePlayer = deletePlayer;

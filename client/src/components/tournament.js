@@ -28,16 +28,16 @@ class Tournament extends Component {
               console.log(error);
           });
 
-      axios
-          .get("/api/tournament/finished")
-          .then((response) => {
-              this.setState({
-                  TournamentsFinished: response.data,
-              });
-          })
-          .catch((error) => {
-              console.log(error);
-          });
+      // axios
+      //     .get("/api/tournament/finished")
+      //     .then((response) => {
+      //         this.setState({
+      //             TournamentsFinished: response.data,
+      //         });
+      //     })
+      //     .catch((error) => {
+      //         console.log(error);
+      //     });
   }
 
   // const [tourney, setTourney] = useState([]);
