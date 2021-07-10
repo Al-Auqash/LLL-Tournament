@@ -3,7 +3,8 @@ const tournaments = require("../controllers/tournament.js");
 
 const router = express.Router();
 
-router.get("/api/", tournaments.getTournaments);
+router.get("/api/", tournaments.getActiveTournaments);
+router.get("/api/finished/", tournaments.getFinishedTournaments);
 // router.post("/tournament", tournaments.createTournament);
 // router.get("/tournament/:id", tournaments.getTournament);
 // router.patch("/tournament/:id", tournaments.updateTournament);

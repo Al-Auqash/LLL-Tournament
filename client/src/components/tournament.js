@@ -28,16 +28,16 @@ class Tournament extends Component {
               console.log(error);
           });
 
-      // axios
-      //     .get("/api/tournament/finished")
-      //     .then((response) => {
-      //         this.setState({
-      //             TournamentsFinished: response.data,
-      //         });
-      //     })
-      //     .catch((error) => {
-      //         console.log(error);
-      //     });
+      axios
+          .get("http://localhost:5000/tournament/api/finished")
+          .then((response) => {
+              this.setState({
+                  TournamentsFinished: response.data,
+              });
+          })
+          .catch((error) => {
+              console.log(error);
+          });
   }
 
   // const [tourney, setTourney] = useState([]);
@@ -86,7 +86,7 @@ class Tournament extends Component {
                     ))}
                   </div>
                 </Route>
-                {/* <Route exact path="/tournament/finished">
+                <Route exact path="/tournament/finished">
                   <div className="tournamentTable">
                     {TournamentsFinished.map((Tournaments) => (
                       <Link
@@ -95,12 +95,12 @@ class Tournament extends Component {
                         key={Tournaments.id}
                       >
                         <h3>{Tournaments.name.toUpperCase()}</h3>
-                        <h3>{Tournaments.date}</h3>
+                        <h3>{Tournaments.status}</h3>
                         <h3>{Tournaments.prize}</h3>
                       </Link>
                     ))}
                   </div>
-                </Route> */}
+                </Route>
               </Switch>
             </Router>
           </div>

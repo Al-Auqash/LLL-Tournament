@@ -2,7 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const tournamentModel = require("../models/tournament.js");
 
-const getTournaments = async (req, res) => {
+const getActiveTournaments = async (req, res) => {
   // try {
   //   const tournament = await tournamentModel.find();
   //   res.status(200).json(tournament);
@@ -13,7 +13,23 @@ const getTournaments = async (req, res) => {
   // }
 
   tournamentModel
-    .find()
+    .find().where({ status: 'On Going' })
+    .then((tournaments) => res.json(tournaments))
+    .catch((err) => res.status(400).json("Error: " + err));
+};
+
+const getFinishedTournaments = async (req, res) => {
+  // try {
+  //   const tournament = await tournamentModel.find();
+  //   res.status(200).json(tournament);
+  //   console.log("berhasil")
+  // } catch (error) {
+  //   res.status(404).json({ message: error.message });
+  //   console.log("gagal");
+  // }
+
+  tournamentModel
+    .find().where({ status: 'Finished' })
     .then((tournaments) => res.json(tournaments))
     .catch((err) => res.status(400).json("Error: " + err));
 };
@@ -23,7 +39,6 @@ const getTournament = async (req, res) => {
 
   try {
     const tournament = await tournamentModel.findById(id);
-
     res.status(200).json(tournament);
   } catch (error) {
     res.status(404).json({ message: error.message });
@@ -72,7 +87,8 @@ const deleteTournament = async (req, res) => {
   res.json({ message: "server deleted successfully." });
 };
 
-exports.getTournaments = getTournaments;
+exports.getActiveTournaments = getActiveTournaments;
+exports.getFinishedTournaments = getFinishedTournaments;
 exports.getTournament = getTournament;
 exports.createTournament = createTournament;
 exports.updateTournament = updateTournament;
