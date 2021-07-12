@@ -5,13 +5,18 @@ import instagram from "../img/instagram.png";
 import twitters from "../img/twitters.png";
 // import steam from "../img/steam.png";
 import logoLLL from "./../img/LLL logo.png";
+import { Link } from "react-router-dom";
 
 const footer = () => {
   return (
     <section id="footer">
       <div className="footerContent aboutPosition">
-        <img className="footerAboutLogo" src={logoLLL} />
-        <p className="footerAboutText">©LLL-Tournament is made by itash, ©made in 2021, All rights reserved.</p>
+        <Link to="/dashboard">
+          <img className="footerAboutLogo" src={logoLLL} />
+        </Link>
+        <p className="footerAboutText">
+          ©LLL-Tournament is made by itash, ©made in 2021, All rights reserved.
+        </p>
       </div>
       <div className="footerContent">
         <ul>
