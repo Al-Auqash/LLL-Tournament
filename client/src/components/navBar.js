@@ -1,32 +1,23 @@
 import React from "react";
 import "./navBar.css";
-import { Link } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import logoLLL from "./../img/LLL logo.png";
 
 const navBar = () => {
-  const linkColor = document.querySelectorAll(".navText");
-
-  function colorLink() {
-    if (linkColor) {
-      linkColor.forEach((l) => l.classList.remove("active"));
-      this.classList.add("active");
-    }
-  }
-  linkColor.forEach((l) => l.addEventListener("click", colorLink));
-
+  
   return (
     <section id="navBar">
       <img src={logoLLL}></img>
       <div className="navPosition">
-        <Link to="/" className="navText active">
+        <NavLink to="/" className="navText" >
           Home
-        </Link>
-        <Link to="/guide" className="navText">
+        </NavLink>
+        <NavLink to="/guide" className="navText" activeClassName="active">
           Guide
-        </Link>
-        <Link to="/tournament" className="navText">
+        </NavLink>
+        <NavLink to="/tournament" className="navText" activeClassName="active">
           Tournament
-        </Link>
+        </NavLink>
         <Link to="/signIn" className="btnPosition">
           <button className="signIn">
             <p className="btnText">SIGN IN</p>

@@ -36,17 +36,12 @@
   letter-spacing: 1px;
 }
 
-.active {
-  color: #e41376;
+.navText:hover{
+  color: #01cbee;
 }
 
-.active::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  width: 2px;
-  height: 32px;
-  background-color: var(--white-color);
+.active {
+  color: #01cbee;
 }
 
 .signIn {
@@ -89,5 +84,5 @@
 
 .signIn:hover,
 .signUp:hover {
-  box-shadow: 0px 0px 8px #ffffff;
+  box-shadow: 0px 0px 8px #01cbee;
 }
