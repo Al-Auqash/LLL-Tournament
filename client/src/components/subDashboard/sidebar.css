@@ -1,0 +1,36 @@
+.sideBar {
+  width: 15%;
+  height: 100%;
+  background-color: #22293b;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  /* align-items: center; */
+  /* padding: 2%; */
+  color: #ffffff;
+}
+
+.sideBarLogo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.sideBarLogo > img {
+  width: 75%;
+}
+
+.sideBarMenu {
+}
+
+.sideBarMenuItem {
+  margin: 5% 0% 5% 10%;
+}
+
+.sideBarMenuItem > a {
+  text-decoration: none;
+  color: #ffffff;
+  font-family: "righteous";
+  font-size: 16pt;
+}

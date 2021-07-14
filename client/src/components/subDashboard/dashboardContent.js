@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { Component } from "react";
+import "./dashboardContent.css";
 
 export default class dashboardContent extends Component {
   constructor() {

@@ -1,40 +1,50 @@
 import React from "react";
 import "./navBar.css";
 import { Link } from "react-router-dom";
-import logoLLL from './../img/LLL logo.png'
+import logoLLL from "./../img/LLL logo.png";
 
 const navBar = () => {
-    return (
-        <section id="navBar">
-            <img src={logoLLL}></img>
-            <div className="navPosition">
-                <Link to="/" className="navText">
-                    Home
-                </Link>
-                <Link to="/guide" className="navText">
-                    Guide
-                </Link>
-                <Link to="/tournament" className="navText">
-                    Tournament
-                </Link>
-                <Link to="/signIn" className="btnPosition">
-                    <button className="signIn">
-                        <p className="btnText">SIGN IN</p>
-                    </button>
-                </Link>
-                <p className="navText">or</p>
-                <Link to="/signUp" className="btnPosition">
-                    <button className="signUp">
-                        <p className="btnText">SIGN UP</p>
-                    </button>
-                </Link>
+  const linkColor = document.querySelectorAll(".navText");
 
-                {/* <button className="signUp">
+  function colorLink() {
+    if (linkColor) {
+      linkColor.forEach((l) => l.classList.remove("active"));
+      this.classList.add("active");
+    }
+  }
+  linkColor.forEach((l) => l.addEventListener("click", colorLink));
+
+  return (
+    <section id="navBar">
+      <img src={logoLLL}></img>
+      <div className="navPosition">
+        <Link to="/" className="navText active">
+          Home
+        </Link>
+        <Link to="/guide" className="navText">
+          Guide
+        </Link>
+        <Link to="/tournament" className="navText">
+          Tournament
+        </Link>
+        <Link to="/signIn" className="btnPosition">
+          <button className="signIn">
+            <p className="btnText">SIGN IN</p>
+          </button>
+        </Link>
+        <p className="navText">or</p>
+        <Link to="/signUp" className="btnPosition">
+          <button className="signUp">
+            <p className="btnText">SIGN UP</p>
+          </button>
+        </Link>
+
+        {/* <button className="signUp">
           <a href="#" className="navText">Sign Up</a>
         </button> */}
-            </div>
-        </section>
-    );
+      </div>
+    </section>
+  );
 };
 
 export default navBar;

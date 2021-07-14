@@ -36,6 +36,19 @@
   letter-spacing: 1px;
 }
 
+.active {
+  color: #e41376;
+}
+
+.active::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 2px;
+  height: 32px;
+  background-color: var(--white-color);
+}
+
 .signIn {
   background-color: transparent;
   border-width: 1px;
