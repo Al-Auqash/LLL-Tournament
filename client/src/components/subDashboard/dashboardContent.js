@@ -1,54 +1,22 @@
-import axios from "axios";
-import React, { Component } from "react";
-import "./dashboardContent.css";
+import React from "react";
+import DashboardTournament from "./dashboardTournament";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import  "./dashboardContent.css";
 
-export default class dashboardContent extends Component {
-  constructor() {
-    super();
-    this.state = {
-      Tournaments: [],
-    };
-  }
-
-  componentDidMount() {
-    axios
-      .get("http://localhost:5000/tournament/api")
-      .then((response) => {
-        this.setState({
-          Tournaments: response.data,
-        });
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }
-
-  render() {
-    const { Tournaments } = this.state;
+const dashboardContent = () => {
     return (
       <div className="dashboardContent">
         <div className="container">
-          <a>Create Tournament</a>
-          <table>
-            <tr>
-              <th>Name</th>
-              <th>Status</th>
-              <th>Prize</th>
-              <th>Game</th>
-              <th>Region</th>
-            </tr>
-            {Tournaments.map((Tournaments) => (
-              <tr>
-                <td>{Tournaments.name}</td>
-                <td>{Tournaments.status}</td>
-                <td>{Tournaments.prize}</td>
-                <td>{Tournaments.game}</td>
-                <td>{Tournaments.region}</td>
-              </tr>
-            ))}
-          </table>
+          <Router>
+            <Switch>
+              <Route exact path="/dashboard/tournament">
+                <DashboardTournament />
+              </Route>
+            </Switch>
+          </Router>
         </div>
       </div>
     );
-  }
 }
+
+export default dashboardContent;

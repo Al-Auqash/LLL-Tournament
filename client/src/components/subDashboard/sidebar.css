@@ -8,6 +8,8 @@
   /* align-items: center; */
   /* padding: 2%; */
   color: #ffffff;
+  position: fixed;
+  left: 0;
 }
 
 .sideBarLogo {
@@ -26,6 +28,10 @@
 
 .sideBarMenuItem {
   margin: 5% 0% 5% 10%;
+}
+
+.active {
+  color: #01cbee;
 }
 
 .sideBarMenuItem > a {

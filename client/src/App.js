@@ -25,6 +25,12 @@ class App extends Component {
               <Route exact path="/dashboard">
                 <Dashboard />
               </Route>
+              <Route exact path="/dashboard/player">
+                <Dashboard />
+              </Route>
+              <Route exact path="/dashboard/tournament">
+                <Dashboard />
+              </Route>
               <Route exact path="/signIn">
                 <SignIn />
               </Route>

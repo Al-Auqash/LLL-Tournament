@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import "./sidebar.css";
 import logoLLL from "./../../img/LLL logo.png";
 
@@ -11,13 +11,19 @@ const sidebar = () => {
       </div>
       <div className="sideBarMenu">
         <div className="sideBarMenuItem">
-          <Link to="/dashboard/user">USER</Link>
+          <NavLink to="/dashboard/user" activeClassName="active">
+            USER
+          </NavLink>
         </div>
         <div className="sideBarMenuItem">
-          <Link to="/dashboard/player">PLAYER</Link>
+          <NavLink to="/dashboard/player" activeClassName="active">
+            PLAYER
+          </NavLink>
         </div>
         <div className="sideBarMenuItem">
-          <Link to="/dashboard/tournament">TOURNAMENT</Link>
+          <NavLink to="/dashboard/tournament" activeClassName="active">
+            TOURNAMENT
+          </NavLink>
         </div>
       </div>
     </div>
