@@ -25,6 +25,9 @@ class App extends Component {
               <Route exact path="/dashboard">
                 <Dashboard />
               </Route>
+              <Route exact path="/dashboard/user">
+                <Dashboard />
+              </Route>
               <Route exact path="/dashboard/player">
                 <Dashboard />
               </Route>

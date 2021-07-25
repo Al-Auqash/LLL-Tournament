@@ -28,10 +28,12 @@ export default class dashboardTournament extends Component {
     const { Tournaments } = this.state;
     return (
       <div>
-        <Link to="/dashboard/tournament/create" className="createButton">
-          Create Tournament
-        </Link>
-        <table>
+        <div className="buttonMargin">
+          <Link to="/dashboard/tournament/create" className="createButton">
+            Create +
+          </Link>
+        </div>
+        <table className="dashboardTable">
           <tr>
             <th>Name</th>
             <th>Status</th>
@@ -53,4 +55,3 @@ export default class dashboardTournament extends Component {
     );
   }
 }
-
