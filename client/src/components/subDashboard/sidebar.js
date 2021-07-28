@@ -4,25 +4,40 @@ import "./sidebar.css";
 import logoLLL from "./../../img/LLL logo.png";
 
 const sidebar = () => {
+
+  function tournament(){
+    window.location.href="/dashboard/tournament";
+  }
+  
   return (
     <div className="sideBar">
       <div className="sideBarLogo">
         <img src={logoLLL}></img>
       </div>
       <div className="sideBarMenu">
-        <div className="sideBarMenuItem">
+        <div className="sideBarMenuItem" >
           <NavLink to="/dashboard/user" activeClassName="active">
-            USER
+            Users
           </NavLink>
         </div>
         <div className="sideBarMenuItem">
           <NavLink to="/dashboard/player" activeClassName="active">
-            PLAYER
+            Players
+          </NavLink>
+        </div>
+        <div className="sideBarMenuItem" onClick="tournament()">
+          <NavLink to="/dashboard/tournament" activeClassName="active">
+            Tournaments
           </NavLink>
         </div>
         <div className="sideBarMenuItem">
           <NavLink to="/dashboard/tournament" activeClassName="active">
-            TOURNAMENT
+            Regions
+          </NavLink>
+        </div>
+        <div className="sideBarMenuItem">
+          <NavLink to="/dashboard/tournament" activeClassName="active">
+            Games
           </NavLink>
         </div>
       </div>

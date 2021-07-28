@@ -34,3 +34,7 @@ td {
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   text-decoration: none;
 }
+
+.createButton:hover{
+  opacity: 0.8;
+}
