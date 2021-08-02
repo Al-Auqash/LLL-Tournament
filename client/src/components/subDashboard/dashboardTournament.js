@@ -40,6 +40,7 @@ export default class dashboardTournament extends Component {
             <th>Prize</th>
             <th>Game</th>
             <th>Region</th>
+            <th>Action</th>
           </tr>
           {Tournaments.map((Tournaments) => (
             <tr>
@@ -48,6 +49,16 @@ export default class dashboardTournament extends Component {
               <td>{Tournaments.prize}</td>
               <td>{Tournaments.game}</td>
               <td>{Tournaments.region}</td>
+              <td>
+                <div className="actionContainer">
+                  <Link to="/dashboard/tournament/edit" className="editButton">
+                    Edit
+                  </Link>
+                  <form action="/dashboard/tournament/delete" method="post">
+                    <button class="deleteButton">Delete</button>
+                  </form>
+                </div>
+              </td>
             </tr>
           ))}
         </table>
