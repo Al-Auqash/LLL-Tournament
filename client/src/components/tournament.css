@@ -80,6 +80,10 @@
   justify-content: space-evenly;
 }
 
+.selected {
+  color: #e41376;
+}
+
 .contentMenu a {
   text-decoration: none;
   font-size: 14pt;

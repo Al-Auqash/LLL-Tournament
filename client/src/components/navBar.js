@@ -9,7 +9,7 @@ const navBar = () => {
     <section id="navBar">
       <img src={logoLLL}></img>
       <div className="navPosition">
-        <NavLink to="/" className="navText" >
+        <NavLink exact to="/" className="navText" activeClassName="active">
           Home
         </NavLink>
         <NavLink to="/guide" className="navText" activeClassName="active">

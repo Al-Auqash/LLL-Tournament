@@ -1,5 +1,5 @@
 import React, { Component, useEffect, useState } from "react";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, Link, NavLink } from "react-router-dom";
 import apexLegend from "../img/apex-logo.png";
 import valorant from "../img/valorant-logo.png";
 import axios from "axios";
@@ -65,9 +65,9 @@ class Tournament extends Component {
           </div>
           <div className="mainContent">
             <div className="contentMenu">
-              <Link to="/tournament">ACTIVE TOURNAMENT</Link>
+              <NavLink exact to="/tournament" activeStyle={{textDecoration: 'underline'}}>ACTIVE TOURNAMENT</NavLink>
               <a>|</a>
-              <Link to="/tournament/finished">FINISHED TOURNAMENT</Link>
+              <NavLink exact to="/tournament/finished" activeStyle={{textDecoration: 'underline'}}>FINISHED TOURNAMENT</NavLink>
             </div>
             <Router>
               <Switch>
