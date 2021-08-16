@@ -63,7 +63,7 @@ export default class createTournament extends Component {
   render() {
     return (
       <div>
-        <h1>Create Tournament</h1>
+        <h1 className="titleContent">Create Tournament</h1>
         <form onSubmit={this.createTournament} method="post">
           <div className="createTournamentInputGroup">
             <label>Name</label>
