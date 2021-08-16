@@ -34,6 +34,9 @@ class App extends Component {
               <Route exact path="/dashboard/tournament">
                 <Dashboard />
               </Route>
+              <Route exact path="/dashboard/tournament/create">
+                <Dashboard />
+              </Route>
               <Route exact path="/signIn">
                 <SignIn />
               </Route>

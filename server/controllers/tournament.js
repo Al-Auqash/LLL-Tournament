@@ -1,6 +1,14 @@
 const express = require("express");
 const mongoose = require("mongoose");
+const tournament = require("../models/tournament.js");
 const tournamentModel = require("../models/tournament.js");
+
+const getTournaments = async (req, res) => {
+  tournamentModel
+    .find()
+    .then((tournaments) => res.json(tournaments))
+    .catch((err) => res.status(400).json("error: " + err));
+};
 
 const getActiveTournaments = async (req, res) => {
   // try {
@@ -13,7 +21,8 @@ const getActiveTournaments = async (req, res) => {
   // }
 
   tournamentModel
-    .find().where({ status: 'On Going' })
+    .find()
+    .where({ status: "On Going" })
     .then((tournaments) => res.json(tournaments))
     .catch((err) => res.status(400).json("Error: " + err));
 };
@@ -29,7 +38,8 @@ const getFinishedTournaments = async (req, res) => {
   // }
 
   tournamentModel
-    .find().where({ status: 'Finished' })
+    .find()
+    .where({ status: "Finished" })
     .then((tournaments) => res.json(tournaments))
     .catch((err) => res.status(400).json("Error: " + err));
 };
@@ -46,11 +56,14 @@ const getTournament = async (req, res) => {
 };
 
 const createTournament = async (req, res) => {
-  const { id_server, tournament } = req.body;
+  const { name, status, prize, game, region } = req.body;
 
-  const newTournament = new tournament({
-    id_server,
-    tournament,
+  const newTournament = new tournamentModel({
+    name,
+    status,
+    prize,
+    game,
+    region,
   });
 
   try {
@@ -90,6 +103,7 @@ const deleteTournament = async (req, res) => {
 exports.getActiveTournaments = getActiveTournaments;
 exports.getFinishedTournaments = getFinishedTournaments;
 exports.getTournament = getTournament;
+exports.getTournaments = getTournaments;
 exports.createTournament = createTournament;
 exports.updateTournament = updateTournament;
 exports.deleteTournament = deleteTournament;
