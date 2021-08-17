@@ -45,7 +45,7 @@ export default class createTournament extends Component {
       .then((response) => {
         console.log(response);
         window.location.href = "/dashboard/tournament";
-        alert("tournament created!");
+        // alert("tournament created!");
       })
       .catch((error) => {
         console.log(error);
