@@ -115,9 +115,13 @@ export default class createTournament extends Component {
               className="tournamentCreateInput"
             />
           </div>
-          <button className="createTournamentButton" type="submit" name="createTournament">
-              Create
-            </button>
+          <button
+            className="createTournamentButton"
+            type="submit"
+            name="createTournament"
+          >
+            Create
+          </button>
         </form>
       </div>
     );

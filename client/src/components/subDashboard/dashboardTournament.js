@@ -15,10 +15,9 @@ export default class dashboardTournament extends Component {
     // event.preventDefault();
     // const id = this.state.id;
     // const { Tournaments } = this.state;
-    
 
     axios
-      .delete("http://localhost:5000/tournament/api/"+id)
+      .delete("http://localhost:5000/tournament/api/" + id)
       .then((response) => {
         console.log(response);
         window.location.href = "/dashboard/tournament";
@@ -74,11 +73,14 @@ export default class dashboardTournament extends Component {
                   <Link to="/dashboard/tournament/edit" className="editButton">
                     Edit
                   </Link>
-                  {/* <form onSubmit={this.deleteTournament(Tournaments._id)}> */}
-                    <button type="submit" class="deleteButton" onClick={this.deleteTournament.bind(this, Tournaments._id)}>
-                      Delete
-                    </button>
-                  {/* </form> */}
+
+                  <button
+                    type="submit"
+                    class="deleteButton"
+                    onClick={this.deleteTournament.bind(this, Tournaments._id)}
+                  >
+                    Delete
+                  </button>
                 </div>
               </td>
             </tr>
