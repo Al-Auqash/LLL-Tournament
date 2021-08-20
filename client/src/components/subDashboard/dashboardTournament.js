@@ -12,10 +12,6 @@ export default class dashboardTournament extends Component {
   }
 
   deleteTournament(id) {
-    // event.preventDefault();
-    // const id = this.state.id;
-    // const { Tournaments } = this.state;
-
     axios
       .delete("http://localhost:5000/tournament/api/" + id)
       .then((response) => {
@@ -52,7 +48,7 @@ export default class dashboardTournament extends Component {
         </div>
         <table className="dashboardTable">
           <tr>
-            <th>ID</th>
+            {/* <th>ID</th> */}
             <th>Name</th>
             <th>Status</th>
             <th>Prize</th>
@@ -62,7 +58,7 @@ export default class dashboardTournament extends Component {
           </tr>
           {Tournaments.map((Tournaments) => (
             <tr>
-              <td>{Tournaments._id}</td>
+              {/* <td>{Tournaments._id}</td> */}
               <td>{Tournaments.name}</td>
               <td>{Tournaments.status}</td>
               <td>{Tournaments.prize}</td>
@@ -70,7 +66,11 @@ export default class dashboardTournament extends Component {
               <td>{Tournaments.region}</td>
               <td>
                 <div className="actionContainer">
-                  <Link to="/dashboard/tournament/edit" className="editButton">
+                  <Link
+                    to={`/dashboard/tournament/edit/${Tournaments._id}`}
+                    // to={"/dashboard/tournament/edit/"+Tournaments._id}
+                    className="editButton"
+                  >
                     Edit
                   </Link>
 

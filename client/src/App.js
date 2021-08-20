@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import SignIn from "./components/signIn";
 import SignUp from "./components/signUp";
 // import IndexComponents from "./components/indexComponents";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Nav from "./components/navBar";
 import MainContent from "./components/mainContent";
 import Footer from "./components/footer";
@@ -35,6 +35,9 @@ class App extends Component {
                 <Dashboard />
               </Route>
               <Route exact path="/dashboard/tournament/create">
+                <Dashboard />
+              </Route>
+              <Route path="/dashboard/tournament/edit/:id">
                 <Dashboard />
               </Route>
               <Route exact path="/signIn">

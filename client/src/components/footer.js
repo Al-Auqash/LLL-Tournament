@@ -12,7 +12,7 @@ const footer = () => {
     <section id="footer">
       <div className="footerContent aboutPosition">
         <Link to="/dashboard">
-          <img className="footerAboutLogo" src={logoLLL} />
+          <img alt="Not Found" className="footerAboutLogo" src={logoLLL} />
         </Link>
         <p className="footerAboutText">
           ©LLL-Tournament is made by itash, ©made in 2021, All rights reserved.
@@ -25,15 +25,15 @@ const footer = () => {
             href="https://www.instagram.com/ilham_tawakhal/"
             className="contactItem"
           >
-            <img src={instagram}></img>
+            <img alt="Not Found" src={instagram}></img>
             <li>Instagram</li>
           </a>
           <a href="https://twitter.com/Ilham_tawakhal" className="contactItem">
-            <img src={twitters}></img>
+            <img alt="Not Found" src={twitters}></img>
             <li>Twitter</li>
           </a>
           <a href="https://www.twitch.tv/itash__" className="contactItem">
-            <img src={twitches}></img>
+            <img alt="Not Found" src={twitches}></img>
             <li>Twitch</li>
           </a>
         </ul>

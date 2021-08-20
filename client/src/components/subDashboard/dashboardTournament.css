@@ -71,6 +71,11 @@ td {
   font-size: 12pt;
 }
 
+.editButton:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
+
 .deleteButton {
   padding-left: 1rem;
   padding-right: 1rem;
@@ -86,4 +91,9 @@ td {
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   text-decoration: none;
   font-size: 12pt;
+}
+
+.deleteButton:hover {
+  cursor: pointer;
+  opacity: 0.8;
 }
