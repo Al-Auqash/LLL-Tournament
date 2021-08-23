@@ -79,32 +79,24 @@ const createTournament = async (req, res) => {
 };
 
 const updateTournament = async (req, res) => {
-  const { id } = req.params._id;
-  // await tournamentModel.findByIdAndUpdate(id, req.body, (err, post) => {
-  //   if (err) return next(err);
-  //   res.json(post);
-  // });
+  // const { id } = req.params.id;
+  await tournamentModel.findByIdAndUpdate(
+    req.params.id,
+    req.body,
+    (err, post) => {
+      if (err) return next(err);
+      res.json(post);
+    }
+  );
 
-  tournamentModel
-    .findByIdAndUpdate(id, req.body)
-    .then((tournaments) => res.json(tournaments))
-    .catch((error) => res.status(400).json("error: " + error));
-  // const { name, status, prize, game, region } = req.body;
-
-  // if (!mongoose.Types.ObjectId.isValid(id))
-  //   return res.status(404).send(`No server with id: ${id}`);
-
-  // const updatedTournament = { id_server, tournament, _id: id };
-
-  // res.json(updatedServer);
+  // tournamentModel
+  //   .findByIdAndUpdate(id, req.body)
+  //   .then((tournaments) => res.json(tournaments))
+  //   .catch((error) => res.status(400).json("error: " + error));
 };
 
 const deleteTournament = async (req, res) => {
   const { id } = req.params;
-
-  // if (!mongoose.Types.ObjectId.isValid(id))
-  //   return res.status(404).send(`No server with id: ${id}`);
-
   await tournamentModel.findByIdAndRemove(id);
   res.json({ message: "tournament deleted successfully." });
 };

@@ -9,32 +9,35 @@ class editTournament extends Component {
     super(props);
     // const { _id, name, status, prize, game, region } =
     //   props.location.state.Tournaments;
-    // this.state = {
-    //   _id,
-    //   name,
-    //   status,
-    //   prize,
-    //   game,
-    //   region,
-    // };
     this.state = {
-      currentTournament: [],
+      // _id : "",
+      name: "",
+      status: "",
+      prize: "",
+      game: "",
+      region: "",
     };
+    // this.state = {
+    //   currentTournament: [],
+    // };
 
     this.editTournament = this.editTournament.bind(this);
     this.handleFieldChange = this.handleFieldChange.bind(this);
   }
 
   componentDidMount() {
-    const id = this.props.match.params.id;
-    console.log(id);
     axios
       // .get("http://localhost:5000/tournament/api/" + this.state._id)
       // .get("http://localhost:5000/tournament/api/${this.props.match.params.id}")
       .get("http://localhost:5000/tournament/api/" + this.props.match.params.id)
       .then((response) => {
         this.setState({
-          currentTournament: response.data,
+          // currentTournament: response.data,
+          name: response.data.name,
+          status: response.data.status,
+          prize: response.data.prize,
+          game: response.data.game,
+          region: response.data.region,
         });
       })
       .catch((error) => {
@@ -45,17 +48,21 @@ class editTournament extends Component {
   editTournament(event) {
     event.preventDefault();
     // const id = this.props.params;
+    const newTournament = {
+      name: this.state.name,
+      status: this.state.status,
+      prize: this.state.prize,
+      game: this.state.game,
+      region: this.state.region,
+    };
     axios
-      .put("http://localhost:5000/tournament/api/" + this.state._id, {
-        name: this.state.name,
-        status: this.state.status,
-        prize: this.state.prize,
-        game: this.state.game,
-        region: this.state.region,
-      })
+      .put(
+        "http://localhost:5000/tournament/api/" + this.props.match.params.id,
+        newTournament
+      )
       .then((response) => {
         console.log(response);
-        // window.location.href = "/dashboard/tournament";
+        window.location.href = "/dashboard/tournament";
         // alert("tournament created!");
       })
       .catch((error) => {
@@ -71,14 +78,17 @@ class editTournament extends Component {
     // });
   }
 
-  handleFieldChange(event) {
+  handleFieldChange(e) {
     this.setState({
-      [event.target.name]: event.target.value,
+      [e.target.name]: e.target.value,
     });
+    // var newState = {};
+    // newState[e.target.name] = e.target.value;
+    // this.setState(newState);
   }
 
   render() {
-    const { currentTournament } = this.state;
+    // const { currentTournament } = this.state;
     return (
       <div>
         <h1 className="titleContent">Edit Tournament</h1>
@@ -88,7 +98,7 @@ class editTournament extends Component {
             <input
               type="text"
               name="name"
-              value={currentTournament.name}
+              value={this.state.name}
               onChange={this.handleFieldChange}
               className="tournamentEditInput"
             />
@@ -98,7 +108,7 @@ class editTournament extends Component {
             <input
               type="text"
               name="status"
-              value={currentTournament.status}
+              value={this.state.status}
               onChange={this.handleFieldChange}
               className="tournamentEditInput"
             />
@@ -108,7 +118,7 @@ class editTournament extends Component {
             <input
               type="text"
               name="prize"
-              value={currentTournament.prize}
+              value={this.state.prize}
               onChange={this.handleFieldChange}
               className="tournamentEditInput"
             />
@@ -118,7 +128,7 @@ class editTournament extends Component {
             <input
               type="text"
               name="game"
-              value={currentTournament.game}
+              value={this.state.game}
               onChange={this.handleFieldChange}
               className="tournamentEditInput"
             />
@@ -128,7 +138,7 @@ class editTournament extends Component {
             <input
               type="text"
               name="region"
-              value={currentTournament.region}
+              value={this.state.region}
               onChange={this.handleFieldChange}
               className="tournamentEditInput"
             />
