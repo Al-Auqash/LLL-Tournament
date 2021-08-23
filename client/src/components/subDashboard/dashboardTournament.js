@@ -67,8 +67,11 @@ export default class dashboardTournament extends Component {
               <td>
                 <div className="actionContainer">
                   <Link
-                    to={`/dashboard/tournament/edit/${Tournaments._id}`}
-                    // to={"/dashboard/tournament/edit/"+Tournaments._id}
+                    // to={{
+                    //   pathname: `/dashboard/tournament/edit/`,
+                    //   state: { Tournaments: Tournaments },
+                    // }}
+                    to={"/dashboard/tournament/edit/"+Tournaments._id}
                     className="editButton"
                   >
                     Edit

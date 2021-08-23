@@ -79,7 +79,7 @@ const createTournament = async (req, res) => {
 };
 
 const updateTournament = async (req, res) => {
-  const { id } = req.params.id;
+  const { id } = req.params._id;
   // await tournamentModel.findByIdAndUpdate(id, req.body, (err, post) => {
   //   if (err) return next(err);
   //   res.json(post);

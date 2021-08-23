@@ -1,10 +1,22 @@
 import React, { Component } from "react";
 import axios from "axios";
 import "./editTournament.css";
+import { withRouter } from "react-router-dom";
 
-export default class editTournament extends Component {
+// export default class editTournament extends Component {
+class editTournament extends Component {
   constructor(props) {
     super(props);
+    // const { _id, name, status, prize, game, region } =
+    //   props.location.state.Tournaments;
+    // this.state = {
+    //   _id,
+    //   name,
+    //   status,
+    //   prize,
+    //   game,
+    //   region,
+    // };
     this.state = {
       currentTournament: [],
     };
@@ -14,7 +26,11 @@ export default class editTournament extends Component {
   }
 
   componentDidMount() {
+    const id = this.props.match.params.id;
+    console.log(id);
     axios
+      // .get("http://localhost:5000/tournament/api/" + this.state._id)
+      // .get("http://localhost:5000/tournament/api/${this.props.match.params.id}")
       .get("http://localhost:5000/tournament/api/" + this.props.match.params.id)
       .then((response) => {
         this.setState({
@@ -39,7 +55,7 @@ export default class editTournament extends Component {
       })
       .then((response) => {
         console.log(response);
-        window.location.href = "/dashboard/tournament";
+        // window.location.href = "/dashboard/tournament";
         // alert("tournament created!");
       })
       .catch((error) => {
@@ -68,7 +84,7 @@ export default class editTournament extends Component {
         <h1 className="titleContent">Edit Tournament</h1>
         <form onSubmit={this.editTournament}>
           <div className="editTournamentInputGroup">
-            <label>{currentTournament.name}</label>
+            <label>Name</label>
             <input
               type="text"
               name="name"
@@ -82,7 +98,7 @@ export default class editTournament extends Component {
             <input
               type="text"
               name="status"
-              value={this.state.status}
+              value={currentTournament.status}
               onChange={this.handleFieldChange}
               className="tournamentEditInput"
             />
@@ -92,7 +108,7 @@ export default class editTournament extends Component {
             <input
               type="text"
               name="prize"
-              value={this.state.prize}
+              value={currentTournament.prize}
               onChange={this.handleFieldChange}
               className="tournamentEditInput"
             />
@@ -102,7 +118,7 @@ export default class editTournament extends Component {
             <input
               type="text"
               name="game"
-              value={this.state.game}
+              value={currentTournament.game}
               onChange={this.handleFieldChange}
               className="tournamentEditInput"
             />
@@ -112,7 +128,7 @@ export default class editTournament extends Component {
             <input
               type="text"
               name="region"
-              value={this.state.region}
+              value={currentTournament.region}
               onChange={this.handleFieldChange}
               className="tournamentEditInput"
             />
@@ -129,3 +145,5 @@ export default class editTournament extends Component {
     );
   }
 }
+
+export default withRouter(editTournament);

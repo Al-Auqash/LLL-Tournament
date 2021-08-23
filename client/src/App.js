@@ -40,6 +40,9 @@ class App extends Component {
               <Route path="/dashboard/tournament/edit/:id">
                 <Dashboard />
               </Route>
+              {/* <Route path="/dashboard/tournament/edit/">
+                <Dashboard />
+              </Route> */}
               <Route exact path="/signIn">
                 <SignIn />
               </Route>
