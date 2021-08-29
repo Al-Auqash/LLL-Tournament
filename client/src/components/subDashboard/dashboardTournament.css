@@ -26,6 +26,13 @@ td {
   text-decoration: underline #e41376;
 }
 
+.notification {
+  margin: 1%;
+  background-color: #01cbee;
+  color: #e41376;
+  font-size: 14pt;
+}
+
 .buttonMargin {
   margin-bottom: 2.5rem;
 }
