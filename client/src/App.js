@@ -22,10 +22,10 @@ class App extends Component {
         <div className="appPosition">
           <Router>
             <Switch>
-              <Route exact path="/dashboard">
+              <Route path="/dashboard">
                 <Dashboard />
               </Route>
-              <Route exact path="/dashboard/user">
+              {/* <Route exact path="/dashboard/user">
                 <Dashboard />
               </Route>
               <Route exact path="/dashboard/player">
@@ -36,11 +36,14 @@ class App extends Component {
               </Route>
               <Route exact path="/dashboard/tournament/create">
                 <Dashboard />
-              </Route>
-              <Route path="/dashboard/tournament/edit/:id">
+              </Route> */}
+              {/* <Route path="/dashboard/tournament/edit/:id">
                 <Dashboard />
-              </Route>
+              </Route> */}
               {/* <Route path="/dashboard/tournament/edit/">
+                <Dashboard />
+              </Route> */}
+              {/* <Route exact path="/dashboard/gameServer">
                 <Dashboard />
               </Route> */}
               <Route exact path="/signIn">

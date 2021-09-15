@@ -1,13 +1,14 @@
-import express from 'express';
-
-import { getServers, getServer, createServer, updateServer, deleteServer } from '../controllers/gameServer.js';
+const express = require('express');
+const gameServer =  require('../controllers/gameServer.js');
 
 const router = express.Router();
 
-router.get('/', getServers);
-router.post('/', createServer);
-router.get('/:id', getServer);
-router.patch('/:id', updateServer);
-router.delete('/:id', deleteServer);
+router.get('/api/all', gameServer.getServers);
+router.post('/api/create', gameServer.createServer);
+router.get('/api/:id', gameServer.getServer);
+router.put('/api/:id', gameServer.updateServer);
+// router.patch('/api/:id', gameServer.updateServer);
+router.delete('/api/:id', gameServer.deleteServer);
 
-export default router;
+
+module.exports = router;

@@ -1,9 +1,13 @@
 import React from "react";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+
 import DashboardTournament from "./dashboardTournament";
 import CreateTournament from "./createTournament";
 import EditTournament from "./editTournament";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import "./dashboardContent.css";
+import DashboardGameServer from "./gameServer/dashboardGameServer";
+import CreateServer from "./gameServer/createServer";
+import EditServer from "./gameServer/editServer";
 
 const dashboardContent = () => {
   return (
@@ -28,6 +32,15 @@ const dashboardContent = () => {
                 />
               )}
             /> */}
+            <Route exact path="/dashboard/gameServer">
+              <DashboardGameServer />
+            </Route>
+            <Route exact path="/dashboard/gameServer/create">
+              <CreateServer />
+            </Route>
+            <Route exact path="/dashboard/gameServer/edit/:id">
+              <EditServer />
+            </Route>
           </Switch>
         </Router>
       </div>

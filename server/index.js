@@ -22,10 +22,12 @@ connection.once("open", () => {
 });
 
 const tournament = require("./routes/tournament");
+const gameServer = require("./routes/gameServer");
 const player = require("./routes/player");
 // const usersRouter = require('./routes/users');
 
 app.use("/tournament", tournament);
+app.use("/gameServer", gameServer);
 app.use("/player", player);
 
 app.listen(port, () => {

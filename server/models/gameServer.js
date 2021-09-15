@@ -1,18 +1,13 @@
-import mongoose from "mongoose";
+var mongoose = require("mongoose");
 
 const gameServerSchema = mongoose.Schema(
   {
-    id_server: {
-      type: Number,
-      default: 0,
-    },
     gameServer: String,
+    gameServerAlias: String,
   },
   {
     collection: "gameServer",
   }
 );
 
-var gameServer = mongoose.model("gameServer", gameServerSchema);
-
-export default gameServer;
+module.exports = mongoose.model("gameServer", gameServerSchema);

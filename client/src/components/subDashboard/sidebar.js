@@ -44,7 +44,7 @@ const sidebar = () => {
         <div className="sideBarMenuItem">
           <NavLink
             exact
-            to="/dashboard/region"
+            to="/dashboard/gameServer"
             activeStyle={{ color: "#01cbee", opacity: "1" }}
           >
             Regions
