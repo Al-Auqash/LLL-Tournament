@@ -7,6 +7,12 @@ const sidebar = () => {
   function tournament() {
     window.location.href = "/dashboard/tournament";
   }
+  function gameServer() {
+    window.location.href = "/dashboard/gameServer";
+  }
+  function game() {
+    window.location.href = "/dashboard/game";
+  }
 
   return (
     <div className="sideBar">
@@ -41,7 +47,7 @@ const sidebar = () => {
             Tournaments
           </NavLink>
         </div>
-        <div className="sideBarMenuItem">
+        <div className="sideBarMenuItem" onClick="gameServer()">
           <NavLink
             exact
             to="/dashboard/gameServer"
@@ -50,7 +56,7 @@ const sidebar = () => {
             Regions
           </NavLink>
         </div>
-        <div className="sideBarMenuItem">
+        <div className="sideBarMenuItem" onClick="game()">
           <NavLink
             exact
             to="/dashboard/game"

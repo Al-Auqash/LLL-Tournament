@@ -1,18 +1,15 @@
-import mongoose from "mongoose";
+const mongoose = require("mongoose");
 
 const gameSchema = mongoose.Schema(
   {
-    id_game: {
-      type: Number,
-      default: 0,
-    },
     gameName: String,
+    genre: String,
+    developer: String,
+    publisher: String
   },
   {
     collection: "games",
   }
 );
 
-var games = mongoose.model("games", gameSchema);
-
-export default games;
+module.exports = mongoose.model("games", gameSchema);

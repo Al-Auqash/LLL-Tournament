@@ -8,6 +8,9 @@ import "./dashboardContent.css";
 import DashboardGameServer from "./gameServer/dashboardGameServer";
 import CreateServer from "./gameServer/createServer";
 import EditServer from "./gameServer/editServer";
+import DashboardGame from "./games/dashboardGame";
+import CreateGame from "./games/createGame";
+import EditGame from "./games/editGame";
 
 const dashboardContent = () => {
   return (
@@ -40,6 +43,15 @@ const dashboardContent = () => {
             </Route>
             <Route exact path="/dashboard/gameServer/edit/:id">
               <EditServer />
+            </Route>
+            <Route exact path="/dashboard/game">
+              <DashboardGame />
+            </Route>
+            <Route exact path="/dashboard/game/create">
+              <CreateGame />
+            </Route>
+            <Route exact path="/dashboard/game/edit/:id">
+              <EditGame />
             </Route>
           </Switch>
         </Router>

@@ -1,25 +1,24 @@
-import express from "express";
-import mongoose from "mongoose";
+const express = require("express");
+const mongoose = require("mongoose");
 
-import games from "../models/games.js";
+const gamesModel = require("../models/games.js");
 
 const router = express.Router();
 
-export const getGames = async (req, res) => {
+const getGames = async (req, res) => {
   try {
-    const games = await games.find();
-
+    const games = await gamesModel.find();
     res.status(200).json(games);
   } catch (error) {
     res.status(404).json({ message: error.message });
   }
 };
 
-export const getGame = async (req, res) => {
+const getGame = async (req, res) => {
   const { id } = req.params;
 
   try {
-    const game = await games.findById(id);
+    const game = await gamesModel.findById(id);
 
     res.status(200).json(game);
   } catch (error) {
@@ -27,12 +26,14 @@ export const getGame = async (req, res) => {
   }
 };
 
-export const createGame = async (req, res) => {
-  const { id_game, gameName } = req.body;
+const createGame = async (req, res) => {
+  const { gameName, genre, developer, publisher } = req.body;
 
-  const newGame = new games({
-    id_game,
+  const newGame = new gamesModel({
     gameName,
+    genre,
+    developer,
+    publisher,
   });
 
   try {
@@ -44,29 +45,33 @@ export const createGame = async (req, res) => {
   }
 };
 
-export const updateGame = async (req, res) => {
+const updateGame = async (req, res) => {
   const { id } = req.params;
-  const { id_game, gameName } = req.body;
+  const { gameName, genre, developer, publisher } = req.body;
 
   if (!mongoose.Types.ObjectId.isValid(id))
     return res.status(404).send(`No game with id: ${id}`);
 
-  const updatedGame = { id_game, gameName, _id: id };
+  const updatedGame = { gameName, genre, developer, publisher, _id: id };
 
-  await games.findByIdAndUpdate(id, updatedGame, { new: true });
+  await gamesModel.findByIdAndUpdate(id, updatedGame, { new: true });
 
   res.json(updatedGame);
 };
 
-export const deleteGame = async (req, res) => {
+const deleteGame = async (req, res) => {
   const { id } = req.params;
 
   if (!mongoose.Types.ObjectId.isValid(id))
     return res.status(404).send(`No game with id: ${id}`);
 
-  await games.findByIdAndRemove(id);
+  await gamesModel.findByIdAndRemove(id);
 
   res.json({ message: "game deleted successfully." });
 };
 
-export default router;
+exports.getGame = getGame;
+exports.getGames = getGames;
+exports.createGame = createGame;
+exports.updateGame = updateGame;
+exports.deleteGame = deleteGame;
