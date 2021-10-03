@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import logo from "../img/GCC logo.png";
+import logo from "../img/LLL logo.png";
 import line from "../img/Line.png";
 import twitch from "../img/twitch.png";
 import google from "../img/google.png";
@@ -9,7 +9,6 @@ import "./signIn.css";
 import { Link, Redirect } from "react-router-dom";
 
 class signIn extends Component {
-
 
     render() {
         const twitchClick = () => {

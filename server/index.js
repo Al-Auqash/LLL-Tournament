@@ -21,12 +21,14 @@ connection.once("open", () => {
   console.log("MongoDB database connection established successfully");
 });
 
+const authentication = require("./routes/authentication")
 const tournament = require("./routes/tournament");
 const gameServer = require("./routes/gameServer");
 const player = require("./routes/player");
 const game = require("./routes/games");
 // const usersRouter = require('./routes/users');
 
+app.use("/auth", authentication)
 app.use("/tournament", tournament);
 app.use("/gameServer", gameServer);
 app.use("/player", player);

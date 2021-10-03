@@ -1,29 +1,18 @@
-import mongoose from "mongoose";
+const mongoose = require("mongoose");
 
 const authSchema = mongoose.Schema(
   {
-    id_user: {
-      type: Number,
-      default: 0,
-    },
     username: String,
-    // email: String,
+    email: String,
     password: String,
-    selectedFile: String,
     role: {
       type: String,
       default: "Player",
     },
-    createdAt: {
-      type: Date,
-      default: new Date(),
-    },
   },
   {
-    collection: "authentication",
+    collection: "users",
   }
 );
 
-var authentication = mongoose.model("authentication", authSchema);
-
-export default authentication;
+module.exports = mongoose.model("authentication", authSchema);

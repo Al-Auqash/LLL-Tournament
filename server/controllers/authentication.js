@@ -1,76 +1,103 @@
-import express from "express";
-import mongoose from "mongoose";
+const express = require("express");
+const authenticationModel = require("../models/authentication.js");
+const app = express();
+const bcrypt = require("bcrypt");
+const passport = require("passport");
+const flash = require("express-flash");
+const session = require("express-session");
+const methodOverride = require("method-override");
+const cors = require("cors");
+require("dotenv").config();
 
-import authentication from "../models/authentication.js";
+app.use(
+  cors({
+    origin: "http://localhost:3000", // <-- location of the react app were connecting to
+    credentials: true,
+  })
+);
+app.use(express.urlencoded({ extended: false }));
+app.use(flash());
+app.use(
+  session({
+    secret: process.env.SESSION_SECRET,
+    resave: false,
+    saveUninitialized: false,
+  })
+);
+app.use(passport.initialize());
+app.use(passport.session());
+app.use(methodOverride("_method"));
 
-const router = express.Router();
+const initializePassport = require("./passport-config");
+initializePassport(passport);
 
-export const getUsers = async (req, res) => {
-  try {
-    const users = await authentication.find();
+//---------------------------------------- END OF MIDDLEWARE ----------------------------------------//
 
-    res.status(200).json(users);
-  } catch (error) {
-    res.status(404).json({ message: error.message });
-  }
-};
-
-export const getUser = async (req, res) => {
-  const { id } = req.params;
-
-  try {
-    const user = await authentication.findById(id);
-
-    res.status(200).json(user);
-  } catch (error) {
-    res.status(404).json({ message: error.message });
-  }
-};
-
-export const createUser = async (req, res) => {
-  const { id_user, username, password, selectedFile, role } = req.body;
-
-  const newUser = new authentication({
-    id_user,
-    username,
-    password,
-    selectedFile,
-    role,
+const login = () => {
+  passport.authenticate("local", {
+    successRedirect: "/",
+    failureRedirect: "/signIn",
+    failureFlash: true,
   });
+};
 
-  try {
-    await newUser.save();
+const register = (req, res) => {
+  authenticationModel.findOne(
+    { username: req.body.username },
+    async (err, doc) => {
+      if (err) throw err;
+      if (doc) res.send("User Already Exists");
+      if (!doc) {
+        const hashedPassword = await bcrypt.hash(req.body.password, 10);
 
-    res.status(201).json(newUser);
-  } catch (error) {
-    res.status(409).json({ message: error.message });
+        const newUser = new authenticationModel({
+          username: req.body.username,
+          email: req.body.email,
+          password: hashedPassword,
+          role: req.body.role,
+        });
+        await newUser.save();
+        res.send("User Created");
+      }
+    }
+  );
+
+  // try {
+  //   const hashedPassword = await bcrypt.hash(req.body.password, 10);
+  //   authenticationModel.push({
+  //     username: req.body.username,
+  //     email: req.body.email,
+  //     role: req.body.role,
+  //     password: hashedPassword,
+  //   });
+  //   res.redirect("/signIn");
+  // } catch {
+  //   res.redirect("http://localhost:3000/signUp");
+  // }
+};
+
+const logout = (req, res) => {
+  req.logOut();
+  res.redirect("/signIn");
+};
+
+const checkAuthenticated = (req, res, next) => {
+  if (req.isAuthenticated()) {
+    return next();
   }
+
+  res.redirect("/signIn");
 };
 
-export const updateUser = async (req, res) => {
-  const { id } = req.params;
-  const { id_user, username, password, selectedFile, role } = req.body;
-
-  if (!mongoose.Types.ObjectId.isValid(id))
-    return res.status(404).send(`No user with id: ${id}`);
-
-  const updatedUser = { id_user, username, password, selectedFile, role, _id: id };
-
-  await authentication.findByIdAndUpdate(id, updatedUser, { new: true });
-
-  res.json(updatedUser);
+const checkNotAuthenticated = (req, res, next) => {
+  if (req.isAuthenticated()) {
+    return res.redirect("/");
+  }
+  next();
 };
 
-export const deleteUser = async (req, res) => {
-  const { id } = req.params;
-
-  if (!mongoose.Types.ObjectId.isValid(id))
-    return res.status(404).send(`No user with id: ${id}`);
-
-  await authentication.findByIdAndRemove(id);
-
-  res.json({ message: "user deleted successfully." });
-};
-
-
-export default router;
+exports.login = login;
+exports.register = register;
+exports.logout = logout;
+exports.checkAuthenticated = checkAuthenticated;
+exports.checkNotAuthenticated = checkNotAuthenticated;
