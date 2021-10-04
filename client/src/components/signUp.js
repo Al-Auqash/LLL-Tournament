@@ -38,7 +38,7 @@ class signUp extends Component {
       })
       .then((response) => {
         console.log(response);
-        window.location.href = "/";
+        window.location.href = "/signIn";
       })
       .catch((error) => {
         console.log(error);

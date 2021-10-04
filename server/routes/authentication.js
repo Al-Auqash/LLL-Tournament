@@ -6,11 +6,7 @@ const router = express.Router();
 //   return res.redirect("/login")
 // });
 
-router.post(
-  "/signIn",
-  authentication.checkNotAuthenticated,
-  authentication.login
-);
+router.post("/signIn", authentication.login);
 // router.post('/signIn', checkNotAuthenticated, passport.authenticate('local', {
 //     successRedirect: '/',
 //     failureRedirect: '/signIn',
