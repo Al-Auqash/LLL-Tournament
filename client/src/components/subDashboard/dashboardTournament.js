@@ -49,12 +49,12 @@ export default class dashboardTournament extends Component {
         <table className="dashboardTable">
           <tr>
             {/* <th>ID</th> */}
-            <th>Name</th>
-            <th>Status</th>
-            <th>Prize</th>
-            <th>Game</th>
-            <th>Region</th>
-            <th>Action</th>
+            <th width="20%">Name</th>
+            <th width="10%">Status</th>
+            <th width="20%">Prize</th>
+            <th width="20%">Game</th>
+            <th width="20%">Region</th>
+            <th width="10%">Action</th>
           </tr>
           {Tournaments.map((Tournaments) => (
             <tr>
