@@ -29,7 +29,11 @@
 .sideBarMenuItem {
   /* margin: 5% 0% 5% 0%; */
   padding-left: 10%;
-  height: 2.5rem;
+  height: 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* align-items: center; */
 }
 
 .sideBarMenuItem:hover {
