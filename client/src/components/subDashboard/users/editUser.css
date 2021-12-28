@@ -11,7 +11,7 @@ form {
    flex-direction: column;
 }
 
-.editGameInputGroup {
+.editUserInputGroup {
    display: flex;
    flex-direction: column;
 }
@@ -24,7 +24,7 @@ form > div > label {
    margin: 1rem 0 0.3rem 0;
 }
 
-.gameEditInput {
+.userEditInput {
    width: 100%;
    height: 2rem;
    background-color: #10131c;
@@ -34,7 +34,7 @@ form > div > label {
    font-size: 10pt;
 }
 
-.editGameButton {
+.editUserButton {
    padding-left: 1rem;
    padding-right: 1rem;
    padding-top: 0.5rem;
@@ -50,7 +50,7 @@ form > div > label {
    text-decoration: none;
    margin-top: 0.5rem;
 }
-.editGameButton:hover {
+.editUserButton:hover {
    opacity: 0.8;
    cursor: pointer;
 }

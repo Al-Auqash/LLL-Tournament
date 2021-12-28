@@ -11,6 +11,9 @@ import EditServer from "./gameServer/editServer";
 import DashboardGame from "./games/dashboardGame";
 import CreateGame from "./games/createGame";
 import EditGame from "./games/editGame";
+import DashboardUser from "./users/dashboardUser";
+import CreateUser from "./users/createUser";
+import EditUser from "./users/editUser";
 
 const dashboardContent = () => {
   return (
@@ -52,6 +55,15 @@ const dashboardContent = () => {
             </Route>
             <Route exact path="/dashboard/game/edit/:id">
               <EditGame />
+            </Route>
+            <Route exact path="/dashboard/user">
+              <DashboardUser />
+            </Route>
+            <Route exact path="/dashboard/user/create">
+              <CreateUser />
+            </Route>
+            <Route exact path="/dashboard/user/edit/:id">
+              <EditUser />
             </Route>
           </Switch>
         </Router>
