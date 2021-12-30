@@ -40,7 +40,7 @@ class editUser extends Component {
    editUser(event) {
       event.preventDefault();
       // const id = this.props.params;
-      const newuserServer = {
+      const newUserServer = {
          role: this.state.role,
          username: this.state.username,
          email: this.state.email,
@@ -49,7 +49,7 @@ class editUser extends Component {
       axios
          .put(
             "http://localhost:5000/user/api/" + this.props.match.params.id,
-            newuserServer
+            newUserServer
          )
          .then((response) => {
             console.log(response);

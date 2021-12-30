@@ -46,12 +46,12 @@ const createUser = async (req, res) => {
 
 const updateUser = async (req, res) => {
    const { id } = req.params;
-   const { user, userAlias } = req.body;
+   const { role, username, email, password } = req.body;
 
-   if (!mongoose.Types.ObjectId.isValid(id))
+   if (!mongoose.Types.ObjectId.isValid(id)) {
       return res.status(404).send(`No user with id: ${id}`);
-
-   const updatedUser = { user, userAlias, _id: id };
+   }
+   const updatedUser = { role, username, email, password, _id: id };
 
    await userModel.findByIdAndUpdate(id, updatedUser, { new: true });
 
