@@ -4,18 +4,18 @@ import "./sidebar.css";
 import logoLLL from "./../../img/LLL logo.png";
 
 const sidebar = () => {
-   const user = () => {
-      window.location.href = "/dashboard/user";
-   };
-   function tournament() {
-      window.location.href = "/dashboard/tournament";
-   }
-   function gameServer() {
-      window.location.href = "/dashboard/gameServer";
-   }
-   function game() {
-      window.location.href = "/dashboard/game";
-   }
+   // const user = () => {
+   //    window.location.href = "/dashboard/user";
+   // };
+   // function tournament() {
+   //    window.location.href = "/dashboard/tournament";
+   // }
+   // function gameServer() {
+   //    window.location.href = "/dashboard/gameServer";
+   // }
+   // function game() {
+   //    window.location.href = "/dashboard/game";
+   // }
 
    return (
       <div className="sideBar">
@@ -66,6 +66,15 @@ const sidebar = () => {
                   activeStyle={{ color: "#01cbee", opacity: "1" }}
                >
                   Games
+               </NavLink>
+            </div>
+            <div className="sideBarMenuItem">
+               <NavLink
+                  exact
+                  to="/"
+                  activeStyle={{ color: "#01cbee", opacity: "1" }}
+               >
+                  Web
                </NavLink>
             </div>
          </div>
