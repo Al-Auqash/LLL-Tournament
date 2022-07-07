@@ -13,4 +13,4 @@ const gameTournamentSchema = mongoose.Schema(
   }
 );
 
-module.exports = mongoose.model("tournaments", gameTournamentSchema);
+module.exports = mongoose.model("tournamentModel", gameTournamentSchema);

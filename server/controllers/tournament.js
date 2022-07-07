@@ -10,14 +10,14 @@ const getTournaments = (req, res) => {
       .catch((err) => res.status(400).json("error: " + err));
 };
 
-const getActiveTournaments = async (req, res) => {
-   await tournamentModel
+const getActiveTournaments = (req, res) => {
+   tournamentModel
       .find()
-      // .where({ status: "On Going" });
+      .where({ status: "On Going" })
       .then((tournaments) => res.json(tournaments))
       .catch((err) => res.status(400).json("Error: " + err));
 
-   //  res.json(tournament);
+   // res.json(tournament);
 };
 
 const getFinishedTournaments = async (req, res) => {

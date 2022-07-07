@@ -59,7 +59,7 @@ export default class createTournament extends Component {
          prize: "",
          game: "",
          region: "",
-      });
+      }); 
    }
 
    componentDidMount() {
