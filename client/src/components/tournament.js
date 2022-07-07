@@ -23,6 +23,7 @@ class Tournament extends Component {
               this.setState({
                   Tournaments: response.data,
               });
+              console.log(this.state.Tournaments)
           })
           .catch((error) => {
               console.log(error);

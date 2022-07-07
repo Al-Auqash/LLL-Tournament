@@ -2,7 +2,7 @@ const express = require("express");
 const authenticationModel = require("../models/authentication.js");
 const app = express();
 const bcrypt = require("bcrypt");
-const passport = require("passport");
+// const passport = require("passport");
 const flash = require("express-flash");
 // const cookieParser = require("cookie-parser");
 const session = require("express-session");
@@ -26,9 +26,9 @@ app.use(
    })
 );
 // app.use(cookieParser(process.env.SESSION_SECRET));
-require("./passport-config")(passport);
-app.use(passport.initialize());
-app.use(passport.session());
+// require("./passport-config")(passport);
+// app.use(passport.initialize());
+// app.use(passport.session());
 // app.use(methodOverride("_method"));
 
 // const initializePassport = require("./passport-config");
