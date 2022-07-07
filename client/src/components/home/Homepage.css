@@ -1,0 +1,173 @@
+#mainContent {
+   /* background-color: #1e3044; */
+   background-image: url("../../img/Esport-wallpaper.jpg");
+   color: #ffffff;
+   padding: 0;
+   margin: 0;
+   z-index: 1;
+}
+
+.welcomePage {
+   /* background-image: url("../../img/Esport-wallpaper.jpg"); */
+   background-image: linear-gradient(
+      rgba(56, 82, 160, 0.2),
+      rgba(20, 24, 34, 1)
+   );
+   background-size: cover;
+   width: 100%;
+   height: 100vh;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   font-family: Arial, Helvetica, sans-serif;
+}
+.welcomePage h1 {
+   font-size: 40px;
+}
+.background {
+   background-image: linear-gradient(
+      rgba(56, 82, 160, 0.2),
+      rgba(16, 19, 28, 1)
+   );
+   background-position: center;
+   background-size: cover;
+}
+.joinNow {
+   background-color: #cc1f38;
+   border-radius: 5px;
+   height: 8vh;
+   width: 24vh;
+   border-color: transparent;
+   cursor: pointer;
+}
+
+.welcomeBtnText {
+   font-weight: bold;
+   font-size: 16px;
+   text-decoration: none;
+   color: #ffffff;
+   margin: 0;
+   font-family: Arial, Helvetica, sans-serif;
+   letter-spacing: 1px;
+}
+
+.works {
+   background-color: #141822;
+   background-image: url("../../img/background.png");
+   height: 120vh;
+   width: 100%;
+   display: flex;
+   background-size: cover;
+   background-position: center center;
+   flex-direction: column;
+   justify-content: center;
+}
+
+.title {
+   color: #ffffff;
+   margin: 2% 5% 2% 5%;
+   border-bottom: 3px solid #cc1f38;
+   width: 14%;
+   font-family: Arial, Helvetica, sans-serif;
+}
+
+.title h1 {
+   background-color: transparent;
+}
+
+.worksCard {
+   display: flex;
+   flex-direction: row;
+   justify-content: center;
+   align-items: center;
+   height: 50%;
+   font-family: Arial, Helvetica, sans-serif;
+}
+
+.worksCard .card {
+   width: 15%;
+   height: 100%;
+   padding-left: 1%;
+   padding-right: 1%;
+   margin: 2% 5% 2% 5%;
+   /* background-color: #1e3044; */
+   background-color: #22293b;
+   /* background: linear-gradient(
+      83.67deg,
+      rgb(34, 41, 59) 0%,
+      rgb(29, 34, 50) 100%
+    ); */
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   text-align: center;
+   border-radius: 20px;
+   box-shadow: -5px -5px 4px#e41376, 5px 5px 4px #01cbee;
+   /*   
+    0 0 0 10px hsl(0, 0%, 80%),
+    0 0 0 15px hsl(0, 0%, 90%); */
+}
+
+.cardImage {
+   height: 30%;
+   width: auto;
+}
+
+.learnMore {
+   display: flex;
+   justify-content: center;
+   margin-top: 3%;
+}
+
+.learnMore a {
+   text-decoration: none;
+   color: #e41376;
+   font-family: Arial, Helvetica, sans-serif;
+   font-weight: bold;
+}
+
+.ourPartners {
+   background-color: #141822;
+   /* background-image: url("../../img/background.png"); */
+   height: 100vh;
+   width: 100%;
+   display: flex;
+   background-size: cover;
+   /* background-position: center center; */
+   flex-direction: column;
+   justify-content: center;
+}
+
+.ourPartnersCard {
+   display: grid;
+   grid-template-columns: 20% 20% 20%;
+   grid-gap: 5%;
+   justify-content: center;
+   align-items: center;
+   height: 50%;
+   font-family: Arial, Helvetica, sans-serif;
+}
+
+.ourPartnersCard .card {
+   width: 100%;
+   height: 50%;
+   padding-left: 1%;
+   padding-right: 1%;
+   margin: 2% 5% 2% 5%;
+   /* background-color: #1e3044; */
+   background: linear-gradient(
+      83.67deg,
+      rgb(34, 41, 59) 0%,
+      rgb(29, 34, 50) 100%
+   );
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   text-align: center;
+   border-radius: 10px;
+   box-shadow: -5px -5px 4px#e41376, 5px 5px 4px #01cbee;
+   border-color: #ffffff;
+}

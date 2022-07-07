@@ -1,0 +1,130 @@
+#tournament {
+  background-color: #10131c;
+  background-image: url("../../img/background.png");
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  background-size: cover;
+  flex-direction: row;
+  justify-content: center;
+  padding-top: 10vh;
+}
+
+.tournamentRightContent {
+  display: flex;
+  flex-direction: column;
+  color: #ffffff;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+}
+
+.tournamentRightContent h1 {
+  text-align: center;
+}
+
+.tournamentLeftContent {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+}
+
+.subLeftContent {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  /* align-items: center; */
+  width: 100%;
+  height: 100%;
+  padding-top: 10%;
+}
+
+.gameMenu {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #28283b;
+  width: 10%;
+  height: 15%;
+  border-radius: 10px;
+  border-radius: 10px 0px 0px 10px;
+}
+
+.imgGameMenu {
+  width: 30%;
+  height: auto;
+  margin: 15%;
+}
+
+.imgGameMenu::after {
+  border-right: #e41376;
+}
+
+.mainContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #ffffff;
+  background-color: #1e3044;
+  width: 60%;
+  height: 60%;
+  padding: 5%;
+  border-radius: 0px 10px 10px 10px;
+}
+
+.contentMenu {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.selected {
+  color: #e41376;
+}
+
+.contentMenu a {
+  text-decoration: none;
+  font-size: 14pt;
+  color: #ffffff;
+}
+
+.tournamentTable {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+}
+.tournamentTableContent {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  text-decoration: none;
+  background: linear-gradient(
+    83.67deg,
+    rgb(34, 41, 59) 0%,
+    rgb(29, 34, 50) 100%
+  );
+  /* background-color: #28283b; */
+  margin-top: 5%;
+  border-radius: 5pt;
+  padding: 2%;
+  border-style: solid;
+  border-color: #ffffff;
+  border-width: 1px;
+}
+
+.tournamentTableContent h3 {
+  color: #fff;
+  width: 25%;
+}
+
+.joinNowButton {
+  background-color: #cc1f38;
+  border-radius: 5px;
+  height: 8vh;
+  width: 24vh;
+  border-color: transparent;
+  cursor: pointer;
+}
