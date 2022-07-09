@@ -27,33 +27,18 @@ class signIn extends Component {
       event.preventDefault();
 
       axios
-         .post("http://localhost:5000/auth/signIn", {
+         .post("http://localhost:5000/login", {
             username: this.state.username,
             password: this.state.password,
          })
          .then((response) => {
             console.log(response);
             console.log("success");
-            // console.log(response.message);
-            // if (response.status === 404) {
-            //    this.setState({
-            //       error: "404",
-            //    });
-            //    console.log("AAAA", this.state.error);
-            // }
             window.location.href = "/";
          })
          .catch((error) => {
             console.log(error);
             console.log("error");
-            // console.log("AAA");
-            // if (error) {
-            //    this.setState({
-            //       error: 404,
-            //    });
-            // }
-            
-            // window.location.href = "/";
          });
 
       this.setState({

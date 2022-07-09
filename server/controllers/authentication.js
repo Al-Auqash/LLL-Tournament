@@ -1,110 +1,93 @@
-const express = require("express");
-const authenticationModel = require("../models/authentication.js");
-const app = express();
-const bcrypt = require("bcrypt");
-// const passport = require("passport");
-const flash = require("express-flash");
-// const cookieParser = require("cookie-parser");
-const session = require("express-session");
-const methodOverride = require("method-override");
-const cors = require("cors");
-require("dotenv").config();
+const jwt = require("jsonwebtoken");
+const bcrypt = require("bcryptjs");
+const asyncHandler = require("express-async-handler");
+const User = require("../models/user");
 
-app.use(
-   cors({
-      origin: "http://localhost:3000", // <-- location of the react app were connecting to
-      credentials: true,
-   })
-);
-app.use(express.urlencoded({ extended: false }));
-app.use(flash());
-app.use(
-   session({
-      secret: process.env.SESSION_SECRET,
-      resave: true,
-      saveUninitialized: true,
-   })
-);
-// app.use(cookieParser(process.env.SESSION_SECRET));
-// require("./passport-config")(passport);
-// app.use(passport.initialize());
-// app.use(passport.session());
-// app.use(methodOverride("_method"));
+// @desc    Register new user
+// @route   POST /api/users
+// @access  Public
+const registerUser = asyncHandler(async (req, res) => {
+   const { username, email, password, role } = req.body;
 
-// const initializePassport = require("./passport-config");
-// initializePassport(
-//   passport,
-//   email => authenticationModel.find(user => user.email === email),
-//   id => authenticationModel.find(user => user._id === id)
-// )
+   if (!username || !email || !password) {
+      res.status(400);
+      throw new Error(
+         "Please add all fields " + username + email + password + role
+      );
+   }
 
-//---------------------------------------- END OF MIDDLEWARE ----------------------------------------//
+   // Check if user exists
+   const userExists = await User.findOne({ email });
 
-var login = (req, res) => {
-   console.log("loggedin", req.user);
-   var userInfo = {
-      email: req.user.email,
-   };
-   res.send(userInfo);
+   if (userExists) {
+      res.status(400);
+      throw new Error("User already exists");
+   }
+
+   // Hash password
+   const salt = await bcrypt.genSalt(10);
+   const hashedPassword = await bcrypt.hash(password, salt);
+
+   // Create user
+   const user = await User.create({
+      username,
+      email,
+      password: hashedPassword,
+      role,
+   });
+
+   if (user) {
+      res.status(201).json({
+         _id: user.id,
+         username: user.username,
+         email: user.email,
+         role: user.role,
+         token: generateToken(user._id),
+      });
+   } else {
+      res.status(400);
+      throw new Error("Invalid user data");
+   }
+});
+
+// @desc    Authenticate a user
+// @route   POST /api/users/login
+// @access  Public
+const loginUser = asyncHandler(async (req, res) => {
+   const { email, password } = req.body;
+
+   // Check for user email
+   const user = await User.findOne({ email });
+
+   if (user && (await bcrypt.compare(password, user.password))) {
+      res.json({
+         _id: user.id,
+         username: user.username,
+         email: user.email,
+         token: generateToken(user._id),
+      });
+   } else {
+      res.status(400);
+      throw new Error("Invalid credentials");
+   }
+});
+
+// @desc    Get user data
+// @route   GET /api/users/me
+// @access  Private
+const getMe = asyncHandler(async (req, res) => {
+   res.status(200).json(req.user);
+});
+
+// Generate JWT
+const generateToken = (id) => {
+   return jwt.sign({ id }, process.env.JWT_SECRET, {
+      expiresIn: "30d",
+   });
 };
 
-var register = (req, res) => {
-   authenticationModel.findOne(
-      { username: req.body.username },
-      async (err, doc) => {
-         if (err) throw err;
-         if (doc) res.send("User Already Exists");
-         if (!doc) {
-            const hashedPassword = await bcrypt.hash(req.body.password, 10);
-
-            const newUser = new authenticationModel({
-               username: req.body.username,
-               email: req.body.email,
-               password: hashedPassword,
-               role: req.body.role,
-            });
-            await newUser.save();
-            res.send("User Created");
-         }
-      }
-   );
-
-   // try {
-   //   const hashedPassword = await bcrypt.hash(req.body.password, 10);
-   //   authenticationModel.push({
-   //     username: req.body.username,
-   //     email: req.body.email,
-   //     role: req.body.role,
-   //     password: hashedPassword,
-   //   });
-   //   res.redirect("/signIn");
-   // } catch {
-   //   res.redirect("http://localhost:3000/signUp");
-   // }
+module.exports = {
+   registerUser,
+   loginUser,
+   getMe,
 };
-
-const logout = (req, res) => {
-   req.logOut();
-   res.redirect("/signIn");
-};
-
-// const checkAuthenticated = (req, res, next) => {
-//    if (req.isAuthenticated()) {
-//       return next();
-//    }
-
-//    res.redirect("/signIn");
-// };
-
-// const checkNotAuthenticated = (req, res, next) => {
-//    if (req.isAuthenticated()) {
-//       return res.redirect("/");
-//    }
-//    next();
-// };
-
-module.exports.login = login;
-module.exports.register = register;
-module.exports.logout = logout;
-// exports.checkAuthenticated = checkAuthenticated;
-// exports.checkNotAuthenticated = checkNotAuthenticated;
