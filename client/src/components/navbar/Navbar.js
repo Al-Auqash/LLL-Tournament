@@ -4,6 +4,21 @@ import { NavLink, Link } from "react-router-dom";
 import LoggedIn from "./../authentication/LoggedIn";
 
 const Navbar = () => {
+   const signOut = () => {
+      const token = localStorage.getItem("token");
+      axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
+
+      axios
+         .post("/authentication/signOut")
+         .then(() => {
+            localStorage.removeItem("token");
+            localStorage.clear();
+            window.location.href = "/";
+         })
+         .catch((error) => {
+            console.log(error.response.data);
+         });
+   };
    return (
       <nav
          id="navBar"
@@ -70,7 +85,7 @@ const Navbar = () => {
                            >
                               <a
                                  className="dropdown-item btnNav"
-                                 // onClick={props.signOut}
+                                 onClick={signOut}
                               >
                                  Sign Out
                               </a>

@@ -8,7 +8,7 @@ class signIn extends Component {
       super();
 
       this.state = {
-         username: "",
+         email: "",
          password: "",
          error: "",
       };
@@ -27,22 +27,29 @@ class signIn extends Component {
       event.preventDefault();
 
       axios
-         .post("http://localhost:5000/login", {
-            username: this.state.username,
+         .post("http://localhost:5000/api/authentication/login", {
+            email: this.state.email,
             password: this.state.password,
          })
          .then((response) => {
-            console.log(response);
-            console.log("success");
-            window.location.href = "/";
+            console.log(response.data.token);
+            console.log(response.data.username);
+            console.log(response.data._id);
+
+            // localStorage.setItem("token", response.data.token);
+            // localStorage.setItem("username", response.data.username);
+            // localStorage.setItem("user_id", response.data._id);
          })
+         // .then(() => {
+         //    navigate("/");
+         // })
          .catch((error) => {
             console.log(error);
             console.log("error");
          });
 
       this.setState({
-         username: "",
+         email: "",
          password: "",
       });
    }
@@ -90,8 +97,8 @@ class signIn extends Component {
                         autoComplete="off"
                         className="formInput"
                         type="text"
-                        name="username"
-                        value={this.state.username}
+                        name="email"
+                        value={this.state.email}
                         onChange={this.handleFieldChange}
                      />
                   </div>
