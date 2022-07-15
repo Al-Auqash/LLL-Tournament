@@ -3,7 +3,12 @@ import ReactDOM from "react-dom";
 import SignIn from "./components/authentication/signIn";
 import SignUp from "./components/authentication/signUp";
 // import IndexComponents from "./components/indexComponents";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import {
+   BrowserRouter as Router,
+   Switch,
+   Route,
+   Redirect,
+} from "react-router-dom";
 import Navbar from "./components/navbar/Navbar";
 import Homepage from "./components/home/Homepage";
 import Footer from "./components/footer";
@@ -14,6 +19,7 @@ import Help from "./components/help";
 import Dashboard from "./components/dashboard/Dashboard";
 
 import "./App.css";
+import IsAdmin from "./components/authentication/IsAdmin";
 
 class App extends Component {
    render() {
@@ -23,8 +29,9 @@ class App extends Component {
                <Router>
                   <Switch>
                      <Route path="/dashboard">
-                        <Dashboard />
+                        {IsAdmin() ? <Dashboard /> : <Redirect to="/" />}
                      </Route>
+
                      <Route exact path="/signIn">
                         <SignIn />
                      </Route>

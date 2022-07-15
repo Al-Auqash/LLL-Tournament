@@ -1,23 +1,14 @@
 import React from "react";
 import "./Navbar.css";
 import { NavLink, Link } from "react-router-dom";
-import LoggedIn from "./../authentication/LoggedIn";
+import LoggedIn from "./../authentication/LoggedIn.jsx";
+import isAdmin from "../authentication/IsAdmin";
 
 const Navbar = () => {
    const signOut = () => {
-      const token = localStorage.getItem("token");
-      axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
-
-      axios
-         .post("/authentication/signOut")
-         .then(() => {
-            localStorage.removeItem("token");
-            localStorage.clear();
-            window.location.href = "/";
-         })
-         .catch((error) => {
-            console.log(error.response.data);
-         });
+      localStorage.removeItem("token");
+      localStorage.clear();
+      window.location.href = "/";
    };
    return (
       <nav
@@ -64,6 +55,17 @@ const Navbar = () => {
                         Tournament
                      </NavLink>
                   </li>
+                  {isAdmin() && (
+                     <li className="nav-item">
+                        <NavLink
+                           to="/dashboard"
+                           className="navText nav-link px-4 mx-2"
+                           activeClassName="active"
+                        >
+                           Dashboard
+                        </NavLink>
+                     </li>
+                  )}
                   {LoggedIn() ? (
                      <>
                         <li className="nav-item dropdown">
