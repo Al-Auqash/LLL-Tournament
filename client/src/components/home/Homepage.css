@@ -5,6 +5,7 @@
    padding: 0;
    margin: 0;
    z-index: 1;
+   font-family: "Montserrat", sans-serif;
 }
 
 .welcomePage {
@@ -14,13 +15,11 @@
       rgba(20, 24, 34, 1)
    );
    background-size: cover;
-   width: 100%;
    height: 100vh;
    display: flex;
    flex-direction: column;
    align-items: center;
    justify-content: center;
-   font-family: Arial, Helvetica, sans-serif;
 }
 .welcomePage h1 {
    font-size: 40px;
@@ -35,9 +34,6 @@
 }
 .joinNow {
    background-color: #cc1f38;
-   border-radius: 5px;
-   height: 8vh;
-   width: 24vh;
    border-color: transparent;
    cursor: pointer;
 }
@@ -48,7 +44,7 @@
    text-decoration: none;
    color: #ffffff;
    margin: 0;
-   font-family: Arial, Helvetica, sans-serif;
+   font-family: "Montserrat", sans-serif;
    letter-spacing: 1px;
 }
 
@@ -76,43 +72,11 @@
    background-color: transparent;
 }
 
-.worksCard {
-   display: flex;
-   flex-direction: row;
-   justify-content: center;
-   align-items: center;
-   height: 50%;
-   font-family: Arial, Helvetica, sans-serif;
-}
-
-.worksCard .card {
-   width: 15%;
-   height: 100%;
-   padding-left: 1%;
-   padding-right: 1%;
-   margin: 2% 5% 2% 5%;
-   /* background-color: #1e3044; */
+.card {
    background-color: #22293b;
-   /* background: linear-gradient(
-      83.67deg,
-      rgb(34, 41, 59) 0%,
-      rgb(29, 34, 50) 100%
-    ); */
-   display: flex;
-   flex-direction: column;
-   justify-content: center;
-   align-items: center;
    text-align: center;
    border-radius: 20px;
-   box-shadow: -5px -5px 4px#e41376, 5px 5px 4px #01cbee;
-   /*   
-    0 0 0 10px hsl(0, 0%, 80%),
-    0 0 0 15px hsl(0, 0%, 90%); */
-}
-
-.cardImage {
-   height: 30%;
-   width: auto;
+   box-shadow: -5px -5px 4px #e41376, 5px 5px 4px #01cbee;
 }
 
 .learnMore {
@@ -150,7 +114,7 @@
    font-family: Arial, Helvetica, sans-serif;
 }
 
-.ourPartnersCard .card {
+.ourPartnersCard {
    width: 100%;
    height: 50%;
    padding-left: 1%;
@@ -170,4 +134,10 @@
    border-radius: 10px;
    box-shadow: -5px -5px 4px#e41376, 5px 5px 4px #01cbee;
    border-color: #ffffff;
+}
+.grid-wrapper {
+   display: grid;
+   grid-template-columns: repeat(auto-fill, minmax(12rem, 1fr));
+   column-gap: 2rem;
+   row-gap: 2rem;
 }

@@ -8,7 +8,7 @@ const works = () => {
          <div className="title">
             <h1>HOW GCC WORKS</h1>
          </div>
-         <div className="worksCard">
+         <div className="d-flex flex-row justify-content-evenly grid-wrapper">
             <Card
                src="/images/SignUp.svg"
                title="SIGN UP"
@@ -16,14 +16,14 @@ const works = () => {
             team, and join the game tournaments"
             />
             <Card
-               src="/images/SignUp.svg"
+               src="/images/Contest.svg"
                title="CONTEST"
                description="Join the game with the terms and condition of the tournament
                host and compete against pros to become the champion of the
                game"
             />
             <Card
-               src="/images/SignUp.svg"
+               src="/images/Prizes.svg"
                title="PRIZES"
                description="Get your prizes by winning the game against pros from the
                tournament"
