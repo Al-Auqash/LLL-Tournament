@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { Component } from "react";
+import Table from "../Table";
 
 class DashboardUser extends Component {
    constructor() {
@@ -46,9 +47,8 @@ class DashboardUser extends Component {
                   Create +
                </Link>
             </div>
-            <table className="dashboardTable">
+            {/* <table className="dashboardTable">
                <tr>
-                  {/* <th>ID</th> */}
                   <th>Role</th>
                   <th>Username</th>
                   <th>User Email</th>
@@ -57,7 +57,6 @@ class DashboardUser extends Component {
                </tr>
                {Users.map((Users) => (
                   <tr>
-                     {/* <td>{Users._id}</td> */}
                      <td>{Users.role}</td>
                      <td>{Users.username}</td>
                      <td>{Users.email}</td>
@@ -65,10 +64,6 @@ class DashboardUser extends Component {
                      <td>
                         <div className="actionContainer">
                            <Link
-                              // to={{
-                              //   pathname: `/dashboard/user/edit/`,
-                              //   state: { Users: Users },
-                              // }}
                               to={"/dashboard/user/edit/" + Users._id}
                               className="editButton"
                            >
@@ -86,7 +81,8 @@ class DashboardUser extends Component {
                      </td>
                   </tr>
                ))}
-            </table>
+            </table> */}
+            <Table />
          </div>
       );
    }
