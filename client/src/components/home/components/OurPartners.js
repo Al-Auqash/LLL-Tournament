@@ -3,11 +3,11 @@ import "../Homepage.css";
 
 const OurPartners = () => {
   return (
-    <div className="ourPartners">
-      <div className="title">
+    <div className="ourPartners col">
+      <div className="title row">
         <h1>OUR PARTNERS</h1>
       </div>
-      <div className="ourPartnersCard grid-wrapper mx-auto">
+      <div className="ourPartnersCard grid-wrapper">
           <div className="cs-logo-card">
             <p>Apex</p>
           </div>
