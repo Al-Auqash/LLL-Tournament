@@ -76,12 +76,20 @@
 }
 
 .cs-card {
-    background-color: #22293b;
+    /*background-color: #22293b;*/
+    /*background-color: #222831;*/
+    background-color: #222834;
     text-align: center;
     border-radius: 20px;
     box-shadow: -5px -5px 4px #e41376, 5px 5px 4px #01cbee;
-    width: 18rem;
+    width: 16rem;
+    justify-content: center;
+    align-items: center;
 }
+
+/*.cs-card p {*/
+/*    font-size: 10pt;*/
+/*}*/
 
 .learnMore {
     display: flex;
@@ -146,7 +154,7 @@
 }
 
 .cs-logo-card {
-    background-color: #22293b;
+    background-color: #222834;
     text-align: center;
     border-radius: 5px;
     box-shadow: -3px -3px 4px #e41376, 3px 3px 4px #01cbee;

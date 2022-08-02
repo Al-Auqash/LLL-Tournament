@@ -1,10 +1,10 @@
 #footer {
-  /* background-color: #1e3044; */
-  background: linear-gradient(
-    83.67deg,
-    rgb(34, 41, 59) 0%,
-    rgb(29, 34, 50) 100%
-  );
+   background-color: #222834;
+  /*background: linear-gradient(*/
+  /*  83.67deg,*/
+  /*  rgb(34, 41, 59) 0%,*/
+  /*  rgb(29, 34, 50) 100%*/
+  /*);*/
   /* background-color: rgb(16, 19, 28); */
   height: 35vh;
   width: 100%;
