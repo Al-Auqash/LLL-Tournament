@@ -66,21 +66,21 @@ class signIn extends Component {
     }
 
     render() {
-        const twitchClick = () => {
-            window.location.href = "https://twitch.com";
-        };
-
-        const gooogleClick = () => {
-            window.location.href = "https://google.com";
-        };
-
-        const twitterClick = () => {
-            window.location.href = "https://twitter.com";
-        };
-
-        const steamClick = () => {
-            window.location.href = "https://store.steampowered.com/";
-        };
+        // const twitchClick = () => {
+        //     window.location.href = "https://twitch.com";
+        // };
+        //
+        // const gooogleClick = () => {
+        //     window.location.href = "https://google.com";
+        // };
+        //
+        // const twitterClick = () => {
+        //     window.location.href = "https://twitter.com";
+        // };
+        //
+        // const steamClick = () => {
+        //     window.location.href = "https://store.steampowered.com/";
+        // };
 
         return (
             <div id="signIn">
@@ -88,16 +88,16 @@ class signIn extends Component {
                     <img className="logo" src="/images/LLL logo.png"></img>
                     {/*<h1>SIGN IN</h1>*/}
                     {/*<h3>to Continue to LLL</h3>*/}
-                    <form className="formSignIn" onSubmit={this.signInUser}>
+                    <p id="message" hidden>
+                        No User Found
+                    </p>
+                    <form className="form-sign-in" onSubmit={this.signInUser}>
                         <div className="formSection space">
-                            <p id="message" hidden>
-                                No User Found
-                            </p>
 
                             <label className="formText">EMAIL</label>
                             <input
                                 autoComplete="off"
-                                className="formInput"
+                                className="form-input-sign-in"
                                 type="text"
                                 name="email"
                                 value={this.state.email}
@@ -108,14 +108,14 @@ class signIn extends Component {
                             <label className="formText">PASSWORD</label>
                             <input
                                 autoComplete="off"
-                                className="formInput"
+                                className="form-input-sign-in"
                                 type="password"
                                 name="password"
                                 value={this.state.password}
                                 onChange={this.handleFieldChange}
                             />
                         </div>
-                        <button className="formButton" type="submit" name="signIn">
+                        <button className="form-button-sign-in" type="submit" name="signIn">
                             SIGN IN
                         </button>
                         <Link to="/forgotPassword">
@@ -124,7 +124,7 @@ class signIn extends Component {
                         <img src="/images/Line.png" className="formSeparation"></img>
                     </form>
                     <Link to="/signUp" className="signUpSize">
-                        <button className="signUpButton">CREATE FREE ACCOUNT</button>
+                        <button className="create-account-button">CREATE FREE ACCOUNT</button>
                     </Link>
                     {/* <p>or sign in using</p>
                     <div className="mediaSignIn">
