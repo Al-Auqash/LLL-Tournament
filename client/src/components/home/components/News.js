@@ -5,12 +5,12 @@ import "../Homepage.css"
 
 const news = () => {
     return (
-        <div class="news">
+        <div className="news">
+            <div className="title">
+                <h1>NEWS</h1>
+            </div>
             <div id="carouselExampleInterval" className="carousel slide" data-bs-ride="carousel">
-                <div className="title">
-                    <h1>NEWS</h1>
-                </div>
-                <div className="carousel-inner">
+                <div className="carousel-inner p-4">
                     <div className="carousel-item active" data-bs-interval="10000">
                         <div className="row justify-content-evenly">
                             <Card/>

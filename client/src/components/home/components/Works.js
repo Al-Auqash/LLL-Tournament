@@ -4,7 +4,7 @@ import Card from "./Card";
 
 const works = () => {
     return (
-        <div className="works p-4">
+        <div className="works">
             <div className="title">
                 <h1>HOW GCC WORKS</h1>
             </div>
