@@ -10,8 +10,10 @@ const Homepage = () => {
     return (
         <section id="mainContent">
             <WelcomePage/>
-            <News />
-            <Works/>
+            <div className="background-news-work">
+                <News/>
+                <Works/>
+            </div>
             <OurPartners/>
         </section>
     );

@@ -35,6 +35,13 @@
     background-size: cover;
 }
 
+.background-news-work{
+    background-color: #141822;
+    background-image: url("../../img/background.png");
+    background-size: cover;
+    background-position: center center;
+}
+
 .joinNow {
     background-color: #cc1f38;
     border-color: transparent;
@@ -52,25 +59,25 @@
 }
 
 .news{
-    background-color: #141822;
-    background-image: url("../../img/background.png");
-    height: 100vh;
+    /*background-color: #141822;*/
+    /*background-image: url("../../img/background.png");*/
+    /*background-size: cover;*/
+    /*background-position: center center;*/
+    height: 50vh;
     width: 100%;
     display: flex;
-    background-size: cover;
-    background-position: center center;
     flex-direction: column;
     justify-content: center;
 }
 
 .works {
-    background-color: #141822;
+    /*background-color: #141822;*/
     /*background-image: url("../../img/background.png");*/
+    /*background-size: cover;*/
+    /*background-position: center center;*/
     height: 120vh;
     width: 100%;
     display: flex;
-    background-size: cover;
-    background-position: center center;
     flex-direction: column;
     justify-content: center;
 }
