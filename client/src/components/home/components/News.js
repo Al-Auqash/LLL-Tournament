@@ -1,9 +1,23 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import Card from "./Card";
 
 import "../Homepage.css"
+import axios from "axios";
 
-const news = () => {
+const News = () => {
+    const [news, setNews] = useState([]);
+
+    const getNews = () => {
+        axios
+            .get("http://localhost:5000/news/api/all")
+            .then((response) => {
+                setNews(response.data)
+            })
+    }
+
+    useEffect(() => {
+        getNews()
+    }, [])
     return (
         <div className="news">
             <div className="title">
@@ -13,9 +27,10 @@ const news = () => {
                 <div className="carousel-inner p-4">
                     <div className="carousel-item active" data-bs-interval="10000">
                         <div className="row justify-content-evenly">
-                            <Card/>
-                            <Card/>
-                            <Card/>
+                            {news.map((news) => (
+                                <Card title={news.title} description={news.content}/>
+                            ))}
+
                         </div>
                     </div>
                     <div className="carousel-item" data-bs-interval="2000">
@@ -48,4 +63,4 @@ const news = () => {
     );
 }
 
-export default news;
+export default News;
