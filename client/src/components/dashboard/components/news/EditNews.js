@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
-import "./EditTournament.css";
+import "./EditNews.css";
 import { withRouter } from "react-router-dom";
 
 // export default class editNews extends Component {
@@ -21,7 +21,7 @@ class editNews extends Component {
     //   currentTournament: [],
     // };
 
-    this.editNews = this.editNews.bind(this);
+    this.editTournament = this.editTournament.bind(this);
     this.handleFieldChange = this.handleFieldChange.bind(this);
   }
 
@@ -92,7 +92,7 @@ class editNews extends Component {
     return (
       <div>
         <h1 className="titleContent">Edit Tournament</h1>
-        <form onSubmit={this.editNews}>
+        <form onSubmit={this.editTournament}>
           <div className="editTournamentInputGroup">
             <label>Name</label>
             <input
@@ -146,7 +146,7 @@ class editNews extends Component {
           <button
             className="editTournamentButton"
             type="submit"
-            name="editNews"
+            name="editTournament"
           >
             Edit
           </button>

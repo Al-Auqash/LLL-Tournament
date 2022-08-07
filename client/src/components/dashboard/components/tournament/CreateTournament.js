@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "./CreateTournament.css";
 import axios from "axios";
 
-export default class createTournament extends Component {
+export default class createNews extends Component {
    constructor() {
       super();
 
@@ -26,7 +26,7 @@ export default class createTournament extends Component {
       });
    }
 
-   createTournament(event) {
+   createNews(event) {
       event.preventDefault();
 
       const tournament = {

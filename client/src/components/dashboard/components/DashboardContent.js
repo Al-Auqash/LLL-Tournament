@@ -19,6 +19,10 @@ import DashboardUser from "./users/DashboardUser";
 import CreateUser from "./users/CreateUser";
 import EditUser from "./users/EditUser";
 
+import DashboardNews from "./news/DashboardNews";
+import CreateNews from "./news/CreateNews";
+import EditNews from "./news/EditNews";
+
 const dashboardContent = () => {
   return (
     <div className="dashboardContent">
@@ -51,6 +55,7 @@ const dashboardContent = () => {
             <Route exact path="/dashboard/gameServer/edit/:id">
               <EditServer />
             </Route>
+
             <Route exact path="/dashboard/game">
               <DashboardGame />
             </Route>
@@ -60,6 +65,7 @@ const dashboardContent = () => {
             <Route exact path="/dashboard/game/edit/:id">
               <EditGame />
             </Route>
+
             <Route exact path="/dashboard/user">
               <DashboardUser />
             </Route>
@@ -69,6 +75,17 @@ const dashboardContent = () => {
             <Route exact path="/dashboard/user/edit/:id">
               <EditUser />
             </Route>
+
+            <Route exact path="/dashboard/news">
+              <DashboardNews />
+            </Route>
+            <Route exact path="/dashboard/news/create">
+              <CreateNews />
+            </Route>
+            <Route exact path="/dashboard/news/edit/:id">
+              <EditNews />
+            </Route>
+
           </Switch>
         </Router>
       </div>

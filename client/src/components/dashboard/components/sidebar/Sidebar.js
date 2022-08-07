@@ -15,6 +15,9 @@ const Sidebar = () => {
    function game() {
       window.location.href = "/dashboard/game";
    }
+   function news() {
+      window.location.href = "/dashboard/news";
+   }
 
    return (
       <div className="sideBar">
@@ -65,6 +68,14 @@ const Sidebar = () => {
                   activeStyle={{ color: "#01cbee", opacity: "1" }}
                >
                   Games
+               </NavLink>
+            </div><div className="sideBarMenuItem" onClick="news()">
+               <NavLink
+                  exact
+                  to="/dashboard/news"
+                  activeStyle={{ color: "#01cbee", opacity: "1" }}
+               >
+                  News
                </NavLink>
             </div>
             <div className="sideBarMenuItem">

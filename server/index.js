@@ -22,6 +22,7 @@ const gameServer = require("./routes/gameServer");
 const player = require("./routes/player");
 const game = require("./routes/games");
 const user = require("./routes/user");
+const news = require("./routes/news");
 // const usersRouter = require('./routes/users');
 
 app.use("/api/authentication", authentication);
@@ -30,6 +31,7 @@ app.use("/gameServer", gameServer);
 app.use("/player", player);
 app.use("/game", game);
 app.use("/user", user);
+app.use("/news", news);
 
 app.listen(port, () => {
    console.log(`Server is running on port: ${port}`);
