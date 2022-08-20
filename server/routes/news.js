@@ -1,5 +1,5 @@
 const express = require("express");
-const news = require("../controllers/news.js");
+const news = require("../controllers/news.ts");
 
 const router = express.Router();
 

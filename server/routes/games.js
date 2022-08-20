@@ -1,6 +1,6 @@
 const express = require('express');
 
-const games = require('../controllers/games.js');
+const games = require('../controllers/games.ts');
 
 const router = express.Router();
 
