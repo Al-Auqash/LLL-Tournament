@@ -94,7 +94,7 @@ class Tournament extends Component {
                         <Switch>
                            <Route exact path="/tournament">
                               <div className="tournamentTable">
-                                 {Tournaments.map((Tournaments) => (
+                                 {Tournaments?.map((Tournaments) => (
                                     <Link
                                        className="tournamentTableContent"
                                        to="/help"
@@ -109,7 +109,7 @@ class Tournament extends Component {
                            </Route>
                            <Route exact path="/tournament/finished">
                               <div className="tournamentTable">
-                                 {TournamentsFinished.map((Tournaments) => (
+                                 {TournamentsFinished?.map((Tournaments) => (
                                     <Link
                                        className="tournamentTableContent"
                                        to="/help"
