@@ -1,9 +1,11 @@
-const url = () => {
+const baseUrl = () => {
+   var url = "";
    if (process.env.NODE_ENV !== "production") {
-      return "https://lll-tournament.herokuapp.com/";
+      url = "https://lll-tournament.herokuapp.com/";
    } else {
-      return "http://localhost:5000/";
+      url = "http://localhost:5000/";
    }
+   return url;
 };
 
-module.exports = url;
+module.exports = baseUrl;

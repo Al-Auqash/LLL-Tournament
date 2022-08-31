@@ -8,7 +8,7 @@ import {
 } from "react-router-dom";
 import axios from "axios";
 import "./Tournament.css";
-import BaseUrl from "./../baseUrl";
+// import BaseUrl from "./../baseUrl";
 
 class Tournament extends Component {
    // const Tournament = () => {
@@ -23,7 +23,7 @@ class Tournament extends Component {
 
    componentDidMount() {
       axios
-         .get(BaseUrl + "tournament/api")
+         .get(process.env.REACT_APP_URL + "tournament/api")
          .then((response) => {
             this.setState({
                Tournaments: response.data,
@@ -35,7 +35,7 @@ class Tournament extends Component {
          });
 
       axios
-         .get(BaseUrl + "tournament/api/finished")
+         .get(process.env.REACT_APP_URL + "tournament/api/finished")
          .then((response) => {
             this.setState({
                TournamentsFinished: response.data,
