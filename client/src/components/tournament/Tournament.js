@@ -94,32 +94,50 @@ class Tournament extends Component {
                         <Switch>
                            <Route exact path="/tournament">
                               <div className="tournamentTable">
-                                 {Tournaments?.map((Tournaments) => (
-                                    <Link
-                                       className="tournamentTableContent"
-                                       to="/help"
-                                       key={Tournaments.id}
-                                    >
-                                       <h3>{Tournaments.name.toUpperCase()}</h3>
-                                       <h3>{Tournaments.status}</h3>
-                                       <h3>{Tournaments.prize}</h3>
-                                    </Link>
-                                 ))}
+                                 {Tournaments?.length ? (
+                                    Tournaments.map((Tournaments) => (
+                                       <Link
+                                          className="tournamentTableContent"
+                                          to="/help"
+                                          key={Tournaments.id}
+                                       >
+                                          <h3>
+                                             {Tournaments.name.toUpperCase()}
+                                          </h3>
+                                          <h3>{Tournaments.status}</h3>
+                                          <h3>{Tournaments.prize}</h3>
+                                       </Link>
+                                    ))
+                                 ) : (
+                                    <div className="tournamentTableContent">
+                                       {" "}
+                                       <h3>No Tournament Found</h3>
+                                    </div>
+                                 )}
                               </div>
                            </Route>
                            <Route exact path="/tournament/finished">
                               <div className="tournamentTable">
-                                 {TournamentsFinished?.map((Tournaments) => (
-                                    <Link
-                                       className="tournamentTableContent"
-                                       to="/help"
-                                       key={Tournaments.id}
-                                    >
-                                       <h3>{Tournaments.name.toUpperCase()}</h3>
-                                       <h3>{Tournaments.status}</h3>
-                                       <h3>{Tournaments.prize}</h3>
-                                    </Link>
-                                 ))}
+                                 {TournamentsFinished?.length ? (
+                                    TournamentsFinished.map((Tournaments) => (
+                                       <Link
+                                          className="tournamentTableContent"
+                                          to="/help"
+                                          key={Tournaments.id}
+                                       >
+                                          <h3>
+                                             {Tournaments.name.toUpperCase()}
+                                          </h3>
+                                          <h3>{Tournaments.status}</h3>
+                                          <h3>{Tournaments.prize}</h3>
+                                       </Link>
+                                    ))
+                                 ) : (
+                                    <div className="tournamentTableContent">
+                                       {" "}
+                                       <h3>No Tournament Found</h3>
+                                    </div>
+                                 )}
                               </div>
                            </Route>
                         </Switch>
