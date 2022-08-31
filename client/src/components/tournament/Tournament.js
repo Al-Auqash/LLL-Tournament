@@ -16,7 +16,7 @@ class Tournament extends Component {
 
   componentDidMount() {
       axios
-          .get("http://localhost:5000/tournament/api")
+          .get(process.env.PORT || "http://localhost:5000/tournament/api")
           .then((response) => {
               this.setState({
                   Tournaments: response.data,
@@ -28,7 +28,7 @@ class Tournament extends Component {
           });
 
       axios
-          .get("http://localhost:5000/tournament/api/finished")
+          .get(process.env.PORT || "http://localhost:5000/tournament/api/finished")
           .then((response) => {
               this.setState({
                   TournamentsFinished: response.data,
