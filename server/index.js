@@ -16,6 +16,10 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // database
 database();
 
+app.get("/", (req, res) => {
+   res.json("server start");
+});
+
 const authentication = require("./routes/authentication");
 const tournament = require("./routes/tournament");
 const gameServer = require("./routes/gameServer");
