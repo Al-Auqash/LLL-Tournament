@@ -4,7 +4,7 @@
   "description": "LLL-Tournament is a MERN Project which enable user to be admin or client.",
   "main": "index.js",
   "scripts": {
-    "start": "node ./server/index.js"
+    "start": "npm i && node ./server/index.js"
   },
   "repository": {
     "type": "git",
