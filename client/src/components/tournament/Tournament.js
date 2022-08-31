@@ -16,8 +16,8 @@ class Tournament extends Component {
       super();
 
       this.state = {
-         Tournaments: [],
-         TournamentsFinished: [],
+         Tournaments: [""],
+         TournamentsFinished: [""],
       };
    }
 
