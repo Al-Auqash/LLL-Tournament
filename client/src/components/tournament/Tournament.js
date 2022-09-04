@@ -64,7 +64,7 @@ const Tournament = () => {
         }
     ])
     const getTournaments = () => {
-        axios.get('tournament/api')
+        axios.get(process.env.REACT_APP_URL + 'tournament/api')
             .then((response) => {
                 setTournaments(response.data)
             }).catch((error) => {
@@ -72,7 +72,7 @@ const Tournament = () => {
         })
     }
     const getFinishedTournaments = () => {
-        axios.get('tournament/api/finished')
+        axios.get(process.env.REACT_APP_URL + 'tournament/api/finished')
             .then((response) => {
                 setFinishedTournaments(response.data)
             }).catch((error) => {
