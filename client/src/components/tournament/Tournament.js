@@ -80,7 +80,7 @@ const Tournament = () => {
         })
     }
 
-    console.log(tournaments)
+    // console.log(Array.from(tournaments))
     useEffect(() => {
         getTournaments();
     }, [])
@@ -134,7 +134,7 @@ const Tournament = () => {
                         <Switch>
                             <Route exact path="/tournament">
                                 <div className="tournamentTable">
-                                    {tournaments?.length ? (tournaments.map((Tournaments) => (<Link
+                                    {tournaments?.length ? (Array.from(tournaments).map((Tournaments) => (<Link
                                         className="tournamentTableContent"
                                         to="/help"
                                         key={Tournaments.id}
@@ -152,7 +152,7 @@ const Tournament = () => {
                             </Route>
                             <Route exact path="/tournament/finished">
                                 <div className="tournamentTable">
-                                    {finishedTournaments?.length ? (finishedTournaments.map((Tournaments) => (<Link
+                                    {finishedTournaments?.length ? (Array.from(finishedTournaments).map((Tournaments) => (<Link
                                         className="tournamentTableContent"
                                         to="/help"
                                         key={Tournaments.id}
