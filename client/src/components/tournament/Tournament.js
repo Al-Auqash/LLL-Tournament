@@ -134,13 +134,13 @@ const Tournament = () => {
                         <Switch>
                             <Route exact path="/tournament">
                                 <div className="tournamentTable">
-                                    {tournaments?.length ? (Array.from(tournaments).map((Tournaments) => (<Link
+                                    {tournaments?.length ? (tournaments.map((Tournaments) => (<Link
                                         className="tournamentTableContent"
                                         to="/help"
                                         key={Tournaments.id}
                                     >
                                         <h3>
-                                            {Tournaments.name}
+                                            {Tournaments.name.toUpperCase()}
                                         </h3>
                                         <h3>{Tournaments.status}</h3>
                                         <h3>{Tournaments.prize}</h3>
@@ -152,13 +152,13 @@ const Tournament = () => {
                             </Route>
                             <Route exact path="/tournament/finished">
                                 <div className="tournamentTable">
-                                    {finishedTournaments?.length ? (Array.from(finishedTournaments).map((Tournaments) => (<Link
+                                    {finishedTournaments?.length ? (finishedTournaments.map((Tournaments) => (<Link
                                         className="tournamentTableContent"
                                         to="/help"
                                         key={Tournaments.id}
                                     >
                                         <h3>
-                                            {Tournaments.name}
+                                            {Tournaments.name.toUpperCase()}
                                         </h3>
                                         <h3>{Tournaments.status}</h3>
                                         <h3>{Tournaments.prize}</h3>
