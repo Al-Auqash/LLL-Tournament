@@ -79,6 +79,8 @@ const Tournament = () => {
             console.log(error)
         })
     }
+    console.log("port react " + process.env.REACT_APP_URL);
+    console.log("port " + process.env.PORT);
 
     // console.log(Array.from(tournaments))
     useEffect(() => {
