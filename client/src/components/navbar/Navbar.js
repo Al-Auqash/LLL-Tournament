@@ -13,7 +13,7 @@ const Navbar = () => {
    return (
       <nav
          id="navBar"
-         className="navbar sticky-top navbar-expand-md navbar-dark bg-base-background shadow-sm"
+         className="navbar sticky-top navbar-expand-md navbar-dark bg-base-background shadow-sm p-0"
       >
          <div className="container-fluid d-flex flex-row justify-content-space-between m-0">
             <a className="navbar-brand" href="{{ url('/') }}">

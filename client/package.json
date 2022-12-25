@@ -7,6 +7,7 @@
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
     "dotenv": "^16.0.2",
+    "http-proxy-middleware": "^2.0.6",
     "jquery": "^3.6.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
@@ -17,6 +18,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "webpack": "webpack",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -40,6 +42,5 @@
   },
   "devDependencies": {
     "axios": "^0.21.1"
-  },
-  "proxy": "http://localhost:5000/"
+  }
 }
